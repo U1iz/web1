@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ababab;
+}
+img {
+  vertical-align: middle;
+}
+main {
+  width: 60%;
+  min-width: 640px;
+  height: 2400px;
+  margin: 0 auto;
+  background-color: #e6ebdc;
+}
+main .banner img {
+  position: relative;
+  top: -40px;
+  width: 100%;
+  background-color: #fff;
+}
+main .content {
+  position: relative;
+  top: -1%;
+  margin-top: -36%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+main .content .user_name {
+  margin-left: calc(50% - 60px);
+  font: 600 1.2rem 'Microsoft YaHei';
+}
+main .user_avatar {
+  position: relative;
+  top: -140px;
+  left: 30px;
+}
+main .user_avatar img {
+  position: relative;
+  width: 28%;
+  min-width: 160px;
+  border-radius: 50%;
+  z-index: 2;
+}
+main .user_avatar::before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  top: -5px;
+  left: -6px;
+  width: calc(28% + 12px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  background-color: #fff;
+}

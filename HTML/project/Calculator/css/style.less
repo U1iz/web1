@@ -1,0 +1,136 @@
+@br: 16px;
+@brr: 12px;
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+}
+
+html {
+    font-size: 20px;
+
+    body {
+        background-color: #ccc;
+
+        li {
+            list-style-type: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        textarea {
+            border: none;
+        }
+
+        .body {
+            position: relative;
+            width: 1.6rem;
+            height: 2.5rem;
+            // width: 320px;
+            // height: 500px;
+            width: 32rem;
+            height: 50rem;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: @brr;
+
+            .temp {
+                border-radius: @brr @brr 0 0;
+            }
+
+            .t_area_process,
+            .t_area_result {
+                text-align: right;
+            }
+
+            .t_area_process {
+                display: inline-block;
+                width: 28.4rem;
+                height: 1.9rem;
+                line-height: 1.9rem;
+                margin: 0 auto;
+                // font: 100 18rem 'microsoft YaHei';
+                font-size: 1.3rem !important;
+                font-weight: 100 !important;
+                font-family: arial;
+            }
+
+            .t_area_result {
+                width: 100%;
+                height: 7.2rem;
+                margin: 0 auto;
+            }
+
+            .btn_container {
+                // position: absolute;
+                position: relative;
+                bottom: 0.5rem;
+                // moz-user-select: -moz-none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                // pointer-events: none;
+
+                .fst_line_ctr,
+                .sec_line_ctr,
+                .thd_line_ctr,
+                .foh_line_ctr,
+                .fih_line_ctr,
+                .sxh_line_ctr {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-around;
+                    top: 0.5rem;
+                    margin-bottom: 0.2rem;
+
+                    .fst_line,
+                    .sec_line,
+                    .thd_line,
+                    .foh_line,
+                    .fih_line,
+                    .sxh_line {
+                        // 153 96
+                        display: inline-block;
+                        text-align: center;
+                        cursor: pointer;
+                        width: 7.65rem;
+                        height: 4.8rem;
+                        line-height: 4.8rem;
+                        font-size: 1.8rem;
+                        font-weight: 100;
+                        font-family: arial;
+                        border-radius: @br;
+                        // font: 100 36rem arial;
+                        background-color: #ccc;
+                        transition: all 0.1s;
+
+                        .del_ico {
+                            width: 2.1rem;
+                        }
+                    }
+
+                    .thd_line,
+                    .foh_line,
+                    .fih_line,
+                    .sxh_line {
+                        font-family: "microsoft YaHei";
+                        font-weight: 800;
+                    }
+                }
+
+                .fst_line_ctr {
+                    top: 0;
+                    margin-bottom: 0;
+                }
+
+            }
+        }
+    }
+}

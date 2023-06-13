@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ccc;
+        }
+
+        ul {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 40%;
+            height: 40%;
+            min-width: 340px;
+            min-height: 260px;
+            background-color: #eee;
+            border-radius: 12px;
+            box-shadow: -6px -4px 12px 0px rgba(40, 40, 40, 0.3);
+        }
+
+        li {
+            text-align: center;
+            list-style-type: none;
+            font: 400 22px 'microsoft yaHei';
+            margin: 6px auto;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        input {
+            position: relative;
+            border: none;
+            outline: none;
+            text-align: center;
+            width: 30%;
+            height: 80%;
+            min-width: 180px;
+            min-height: 46px;
+            margin: 5px auto;
+            border-radius: 32px;
+            color: #666;
+        }
+
+        input::before {
+            content: '回车执行';
+            position: absolute;
+            top: 0;
+            left: 100%;
+        }
+
+        button {
+            border: none;
+            width: 80px;
+            height: 46px;
+            background-color: #ccc;
+            border-radius: 24px;
+        }
+
+        button:active {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <input type="text" value="输入三位数字" id="userI">
+            <i style="position: absolute;top: 25px;right: calc(50% - 200px);font: 400 12px 'microsoft yaHei';font-style: normal;cursor: default;">回车执行</i>
+        </li>
+        <li>
+            <button id="userClick">计算</button>
+        </li>
+        <li id="inNum" style="margin-top: 16px;"></li>
+        <li id="outNum"></li>
+        <li id="outInt"></li>
+        <li></li>
+    </ul>
+    <script>
+
+        //1**3 + 5**3 + 3**3 = 153
+        //x**3 + y**3 + z**3 = xyz
+        //numFst 百位 sec 十位 thd 各位
+        //int numFst, numSec, numThd, num_ciFangHe, numSpecialSum, i;
+        // var num, num_ciFangHe, numHundred, i;
+        /*for (i = 0;i <= 900;i++) {
+        for (numFst = 0; numFst <= 9; numFst++)
+        {
+
+        };
+        for (numSec = 0; numSec <= 9; numSec++)
+        {
+
+        };
+        for (numThd = 0; numFst <= 9; numThd++)
+        {
+
+        };
+        }
+        */
+        var inputNum = document.getElementById("inNum");
+        var outputFst = document.getElementById('outNum');
+        var outputSec = document.getElementById('outInt');
+        var input = document.getElementById('userI');
+        var btn = document.getElementById('userClick')
+        console.log(input.value);
+        input.addEventListener('focus', function () {
+            this.value = '';
+        });
+        input.addEventListener('blur', function () {
+            setTimeout(function () { input.value = '输入三位数字'; }, 100);
+        });
+        document.addEventListener('keyup', function (e) {
+            // console.log(e.keyCode);
+            if (e.keyCode === 13) {
+                number(input.value);
+            }
+        });
+        btn.onclick = function () {
+            number(input.value);
+        };
+
+        // var n1, n2, n3;
+        function number(inNum) {
+            n1 = inNum % 10;
+            n2 = (inNum - n1) / 10 % 10;
+            n3 = ((inNum - n1) / 10 - n2) / 10;
+            var outNum = n1 * 100 + n2 * 10 + n3;
+            var numSum = n1 * n1 * n1 + n2 * n2 * n2 + n3 * n3 * n3;
+            inputNum.innerHTML = '输入的数字是：' + inNum;
+            outputFst.innerHTML = ("个位：" + n1 + '; ' + " 十位：" + n2 + '; ' + " 百位：" + n3 + '; ');
+            outputSec.innerHTML = '各位3次方和： ' + numSum;
+            // console.log("各位：" + n1 + "十位：" + n2 + "百位：" + n3);
+        };
+
+        //    从100-999 前方施工
+        for (num = 100; num <= 899; num++) {
+            var num01, num02, num03, numFinal;
+            num01 = 1;
+            num02 = 1;
+            num03 = 1;
+            numFinal = 1;
+            if (num01 * num01 * num01 + num02 * num02 * num02 + num03 * num03 * num03 == numFinal) {
+                Console.WriteLine(numFinal);
+            };
+        };
+    </script>
+</body>
+
+</html>

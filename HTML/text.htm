@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 24px;
+        }
+
+        div {
+            width: 200%;
+            margin-top: 14%;
+            padding: 0.2erm 0.5rem;
+
+        }
+
+        h1,
+        h2,
+        div {
+            position: relative;
+            display: block;
+            z-index: 996;
+        }
+
+        h1 {
+            font: 800 2rem/2 "MicroSoft YaHei";
+        }
+
+        h2 {
+            float: left;
+            /* margin-right: 20%; */
+            font: 800 1.6rem/2 "MicroSoft YaHei";
+        }
+
+        span {
+            position: absolute;
+            top: -1080px;
+            left: 0;
+            width: 1920px;
+            height: 1080px;
+            background-color: #000;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <h1 id="box1">他们吸干了无产者最后的一滴血，然后再对他们施以小恩小惠，</h1>
+        <h1 id="box2">使自己自满的伪善的心灵感到快慰，并在世人面前摆出一副人类恩人的姿态，</h1>
+        <h1 id="box3">就好像这对无产者有什么好处似的。</h1>
+        <h2 id="box4">——恩格斯</h2>
+        <!-- <a href="../pc/index.html"></a> -->
+        <!-- <a href="res1433223.net3v.net"></a> -->
+    </div>
+    <span id="black"></span>
+    <script>
+
+        var equipment = 0;
+        var win_w = window.screen.availWidth;
+        var win_h = window.screen.availHeight;
+        var b1 = document.getElementById('box1');
+        var b2 = document.getElementById('box2');
+        var b3 = document.getElementById('box3');
+        var b4 = document.getElementById('box4');
+        var content = document.getElementById('content');
+        var black = document.getElementById('black');
+        (function () {
+
+            document.body.style.overflowX = 'hidden';
+            document.body.style.overflowY = 'hidden';
+            document.body.style.backgroundColor = '#000';
+            document.body.style.transition = 'all 3s';
+            b1.style.color = 'white';
+            b2.style.color = 'white';
+            b3.style.color = 'white';
+            b4.style.color = 'white';
+
+            black.style.width = win_w + 'px';
+            black.style.height = win_h + 'px';
+            black.style.top = -win_h + 'px';
+            // console.log(black.style.top);
+
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsIpad) {
+                equipment = 1;
+                document.documentElement.style.fontSize = 12 + "px";
+            }
+        }());
+
+
+        console.log(document.documentElement.style.fontSize);
+        // console.log(getComputedStyle(window.document.documentElement)['font-size']);
+        (function () {
+            if (equipment == 0) {
+                b1.style.left = win_w + "px";
+                b2.style.left = win_w + "px";
+                b3.style.left = win_w + "px";
+                b4.style.left = win_w + "px";
+
+                // b4.style.marginRight = win_w + 'px';
+                b4.style.left = -win_w + 'px';
+                content.style.width = win_w * 2 + 'px';
+
+            } else if (equipment == 1) {
+
+                // b4.style.marginRight = win_w * 2 + 'px';
+                b4.style.left = win_w * 2 + 'px';
+                content.style.width = win_w * 4 + 'px';
+
+            }
+            console.log(content);
+            console.log(content.style.width);
+            console.log(b4);
+        }());
+        console.log(window.screen.availWidth);
+
+
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+            }, 15);
+        }
+        function animateTop(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetTop) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetTop == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                obj.style.top = obj.offsetTop + step + 'px';
+
+            }, 15);
+        }
+        setTimeout(
+            function () {
+                animate(b1, screenLeft);
+                setTimeout(function () {
+                    animate(b2, screenLeft);
+                    setTimeout(function () {
+                        animate(b3, screenLeft);
+                        setTimeout(function () {
+                            animate(b4, win_w / 1.32);
+                            setTimeout(function () {
+                                animate(b1, -win_w * 1.6);
+                                setTimeout(function () {
+                                    animate(b2, -win_w * 1.6);
+                                    setTimeout(function () {
+                                        animate(b3, -win_w * 1.6);
+                                        setTimeout(function () {
+                                            animate(b4, win_w * 1.1);
+                                            setTimeout(function () {
+                                                document.body.style.backgroundColor = '#fff';
+                                                setTimeout(function () {
+                                                    animateTop(black, 0)
+                                                    setTimeout(function () {
+                                                        // document.querySelector('a').click();
+                                                        window.location.href = "../pc/index.html";
+                                                        // window.href="res1433223.net3v.net";
+                                                    }, 300)
+                                                }, 300)
+                                            }, 2000)
+                                        }, 500)
+                                    }, 100)
+                                }, 100)
+                            }, 3000)
+                        }, 500)
+                    }, 100)
+                }, 100)
+            }, 500);
+    </script>
+</body>
+
+</html>

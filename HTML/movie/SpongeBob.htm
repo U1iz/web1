@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpongeBob</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        div {
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        div video {
+            /* width: calc(100% -20%);
+            height: calc(100% -20%); */
+            position: absolute;
+            left: calc(50% - 320px);
+            width: 640px;
+            height: 360px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin-top: 400px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="clearfix">
+        <video controls>
+            <source src="./content/SpongeBob@360.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <h2>480p的视频压制成360p却成了现在这个样子，凑合着看吧</h2>
+    <h1>我手里明明有26TB的空间却还要去买服务器空间，这波是巨资啊</h1>
+    
+</body>
+
+</html>

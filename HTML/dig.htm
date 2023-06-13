@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填坑ing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-size: 50px;
+        }
+        div {
+            position: absolute;
+            top: calc(50% - 1rem);
+            left: calc(50% - 2.6rem);
+            font: 800  1rem 'MicroSoft YaHei';
+        }
+    </style>
+</head>
+<body>
+    <div>填坑ing...</div>
+    <a href="javascript:history.go(-1)" id="back"></a>
+
+    <script>
+        var a = document.getElementById('back');
+
+        setTimeout(function() {a.click()},1000);
+    </script>
+</body>
+</html>

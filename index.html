@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baidu-site-verification" content="code-bP5A9KIWmg" />
+    <meta name="keywords" content="想一个关键词好蓝啊,蓝的就像...就像想关键词那么蓝">
+    <meta name="description" content="暂且先不写">
+    <title>Start_page</title>
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .notes_page {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            padding: 0.6rem 2rem;
+            border-radius: 42px 0 0 42px;
+            background-color: rgba(255, 255, 255, 0.2456);
+            transition: all 0.36s;
+        }
+    </style>
+    <script>
+        alert("我做其他项目去了，按目前的成果来看，这里早晚会有天翻地覆的变化")
+    </script>
+</head>
+
+<body onpaste="return false">
+    <i id="timer" class="timer"></i>
+    <canvas id="canvas"></canvas>
+    <canvas>你的浏览器不支持canvas标签!</canvas>
+    <ul>
+        <li>
+            <div class="ph">
+                <!--                <a href="./phone/index.html" target="_parent">-->
+                <a href="./phone/index.html" target="_parent">
+                    <h1 id="phone">手机浏览看这里<span></span></h1>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="pc">
+                <a href="javascript:;" target="_self" id="pc">
+                    <h1>电脑浏览看这里<span></span></h1>
+                </a>
+            </div>
+        </li>
+    </ul>
+    <div class="notes_page" onmouseover="this.style.padding = '0.6rem 3.2rem'" onmouseout="this.style.padding = '0.6rem 2rem'
+        ">
+        <h1 style="cursor: pointer;"
+         onclick='window.open("http://res1433223.net3v.net/phone/html/notes/index.html","_self")'>notes</h1>
+    </div>
+    <ol>
+        <li>
+            <a href="./HTML/about.htm" target="_self">
+                <span></span>
+                <h2>关于</h2>
+            </a>
+        </li>
+    </ol>
+    <div class="tst"></div>
+    <div id="top_tip" class="top_tip"></div>
+    <!-- <script src="js/index.js"></script> -->
+    <script src="./js/function.js"></script>
+    <script src="./js/canvas/rainy.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+        var pc = document.getElementById("pc");
+        var phone = document.getElementById("phone");
+        (function () {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            pc.onclick = function () {
+                if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsIpad) {
+                    window.location.href = "./pc/index.html";
+                } else {
+                    window.location.href = "./pc/index.html";
+                };
+            }
+        }());
+        document.body.parentNode.style.overflowY = 'hidden';
+        document.body.parentNode.style.overflowX = 'hidden';
+
+        function dpr() {
+            document.getElementById('top_tip').remove();
+        }
+        // setTimeout(dpr, 2400);
+        var tst = document.getElementsByClassName('tst')[0];
+        console.log(tst);
+    </script>
+
+</body>
+
+</html>

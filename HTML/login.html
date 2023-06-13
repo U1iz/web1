@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            -moz-user-select: none;
+            /*火狐*/
+            -webkit-user-select: none;
+            /*webkit浏览器*/
+            -ms-user-select: none;
+            /*IE10*/
+            -khtml-user-select: none;
+            /*早期浏览器*/
+            user-select: none;
+        }
+
+        body {
+            background-color: rgba(186, 153, 223, .08);
+        }
+
+        @font-face {
+            font-family: FZKaTong-M19S;
+            src: url("../font/FZKaTong-M19S.ttf");
+            src: url("../font/FZKaTong-M19S.otf");
+            src: url("../font/FZKaTong-M19S.woff");
+            src: url("../font/FZKaTong-M19S.woff2");
+        }
+
+        /*取消微软浏览器的密码小眼睛样式*/
+        input[type="password"]::-ms-reveal {
+            display: none;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        svg {
+            /* 添加 fill:currentColor; 以便后续更改颜色 */
+            position: absolute;
+            fill: currentColor;
+            cursor: pointer;
+            right: 80px;
+            bottom: 8px;
+            padding-right: 10px;
+            width: 30px;
+            height: 30px;
+            border-right: 2px solid rgba(0, 0, 0, 0.2);
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            position: relative;
+            margin: 360px auto;
+            width: 860px;
+            height: 480px;
+        }
+
+        .password_input {
+            position: relative;
+            /*            margin: 360px auto;*/
+            left: calc(50% - 360px);
+            /*			top: calc(40% + 100px);*/
+            top: 210px;
+            width: 720px;
+            /*			width: calc(100% - 62.5%);*/
+            /*			left: calc(100% - 62.5%);*/
+            height: 60px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .password_input input {
+            position: absolute;
+            z-index: 1;
+            bottom: -6px;
+            left: 0;
+            outline: none;
+            width: 540px;
+            height: 50px;
+            border: 0;
+            background-color: transparent;
+            font: 500 18px 'microsoft yahei';
+        }
+
+        .forget {
+            position: absolute;
+            cursor: pointer;
+            right: 0;
+            bottom: 8px;
+            padding: 5px 12px;
+            font: 600 15px 'microsoft yahei';
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .update {
+            position: absolute;
+            text-align: center;
+            cursor: pointer;
+            /*			top: 50%;*/
+            top: 380px;
+            left: calc(50% - 100px);
+            /*			margin: 0 auto;*/
+            /*			padding: 16px 64px;*/
+            /* width: 200px;
+            height: 64px; */
+            border-radius: 64px;
+            background-color: rgba(64, 230, 250, .6);
+            color: rgba(240, 160, 30, .8);
+            font: 12px 'FZKaTong-M19S', 'microsoft yahei';
+            transition: all 0.3s;
+        }
+
+        .update:active {
+            /*			background-color: #00a0d8;*/
+            background-color: rgba(0, 160, 216, 0.6);
+            color: rgba(210, 120, 10, .8);
+        }
+
+        .user_name {
+            position: relative;
+            left: calc(50% - 360px);
+            top: 180px;
+            width: 720px;
+            height: 60px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .user_name input {
+            position: absolute;
+            z-index: 1;
+            bottom: -6px;
+            left: 0;
+            outline: none;
+            width: 540px;
+            height: 50px;
+            border: 0;
+            background-color: transparent;
+            font: 500 18px 'microsoft yahei';
+        }
+    </style>
+</head>
+
+<body>
+    <div id="removeLocalName">注销账号</div>
+    <!--	<div class="content">-->
+    <div class="update" id="update">
+        <h1>设置你的用户名</h1>
+    </div>
+    <div class="user_name" id="user">
+        <input type="text" placeholder="设置你的用户名">
+    </div>
+    <div class="password_input" id="input">
+        <!-- id = input -->
+        <input type="password" id="input_passWord" placeholder="不需要密码"> <!-- id = input_passWord -->
+        <svg t="1629179413144" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="1164" id="svgCantSee">
+            <!-- id = svgCantSee -->
+            <defs>
+                <style type="text/css"></style>
+            </defs>
+            <path
+                d="M960 512c-44.2 0-86.6 17.9-117 50-29.6 31.2-63.6 58.3-101 80.2-34.1 19.9-70.7 35.3-108.7 45.7C594 698.5 553.2 704 512 704s-82-5.5-121.3-16.2c-38-10.4-74.6-25.8-108.7-45.7-37.5-21.9-71.5-48.9-101-80.2-30.4-32.1-72.8-50-117-50 89.4 153 256.6 256 448 256S870.6 665 960 512z"
+                p-id="1165"></path>
+            <!-- <path d="M512 320c41.2 0 82 5.5 121.3 16.2 38 10.4 74.6 25.8 108.7 45.7 56.2 32.8 104.7 77.4 142 130.1-37.2 52.8-85.7 97.3-142 130.1-34.1 19.9-70.7 35.3-108.7 45.7C594 698.5 553.2 704 512 704s-82-5.5-121.3-16.2c-38-10.4-74.6-25.8-108.7-45.7-56.2-32.8-104.7-77.4-142-130.1 37.2-52.8 85.7-97.3 142-130.1 34.1-19.9 70.7-35.3 108.7-45.7C430 325.5 470.8 320 512 320m0-64c-175.7 0-331 86.7-424.4 219.3-15.5 22-15.5 51.4 0 73.3C181 681.3 336.3 768 512 768s331-86.7 424.4-219.3c15.5-22 15.5-51.4 0-73.3C843 342.7 687.7 256 512 256z" p-id="1305"></path>
+        <path d="M512 448c36 0 65.3 28.7 65.3 64S548 576 512 576s-65.3-28.7-65.3-64 29.3-64 65.3-64m0-64c-71.4 0-129.3 57.3-129.3 128S440.6 640 512 640s129.3-57.3 129.3-128S583.4 384 512 384z" p-id="1306"></path> -->
+        </svg>
+        <i class="forget">忘记密码?</i>
+    </div>
+    <!-- <h1>等我学会mySQL...</h1> -->
+    <!--	</div>-->
+    <script>
+        var eye = document.getElementById('svgCantSee');
+        var login = document.getElementById('update');
+        var userName = document.getElementById('user')
+        var pwd = document.getElementById('input_passWord');
+        var flag = 0;
+        eye.onclick = function () {
+            if (flag == 0) {
+                pwd.type = 'text';
+                eye.innerHTML =
+                    '<path d="M512 320c41.2 0 82 5.5 121.3 16.2 38 10.4 74.6 25.8 108.7 45.7 56.2 32.8 104.7 77.4 142 130.1-37.2 52.8-85.7 97.3-142 130.1-34.1 19.9-70.7 35.3-108.7 45.7C594 698.5 553.2 704 512 704s-82-5.5-121.3-16.2c-38-10.4-74.6-25.8-108.7-45.7-56.2-32.8-104.7-77.4-142-130.1 37.2-52.8 85.7-97.3 142-130.1 34.1-19.9 70.7-35.3 108.7-45.7C430 325.5 470.8 320 512 320m0-64c-175.7 0-331 86.7-424.4 219.3-15.5 22-15.5 51.4 0 73.3C181 681.3 336.3 768 512 768s331-86.7 424.4-219.3c15.5-22 15.5-51.4 0-73.3C843 342.7 687.7 256 512 256z" p-id="1305"></path><path d="M512 448c36 0 65.3 28.7 65.3 64S548 576 512 576s-65.3-28.7-65.3-64 29.3-64 65.3-64m0-64c-71.4 0-129.3 57.3-129.3 128S440.6 640 512 640s129.3-57.3 129.3-128S583.4 384 512 384z" p-id="1306"></path>';
+                flag = 1;
+            } else {
+                pwd.type = 'password';
+                eye.innerHTML =
+                    '<path d="M960 512c-44.2 0-86.6 17.9-117 50-29.6 31.2-63.6 58.3-101 80.2-34.1 19.9-70.7 35.3-108.7 45.7C594 698.5 553.2 704 512 704s-82-5.5-121.3-16.2c-38-10.4-74.6-25.8-108.7-45.7-37.5-21.9-71.5-48.9-101-80.2-30.4-32.1-72.8-50-117-50 89.4 153 256.6 256 448 256S870.6 665 960 512z"  p-id="1165"></path>';
+                flag = 0;
+            }
+
+        }
+        var login = document.getElementById('update').querySelector('h1');
+        login.onmouseover = function () {
+            this.innerHTML = 'set your name';
+        }
+        login.onmouseout = function () {
+            this.innerHTML = '设置你的用户名';
+        };
+
+        login.addEventListener('click', function () {
+            if (userName.value == 'Administrator' & userName.value == "admin" | pwd.value == 132) {
+                window.location.href = "../HTML/user homepage/user_owner/user_admin.html";
+            } else {
+                // alert(-1);
+            };
+        });
+        document.addEventListener('keyup', function (e) {
+            // console.log(e.keyCode);
+            if (e.keyCode === 13 || userName.focus == true & pwd.focus == true) {
+                if (userName.value == 'Administrator' & userName.value == "admin" | pwd.value == 132) {
+                    window.location.href = "../HTML/user homepage/user_owner/user_admin.html";
+                } else {
+                    // alert(-1);
+                };
+            };
+        });
+
+        var div = document.createElement('div');
+        login.style.padding = 20 + 'px';
+        //存取模块
+        login.addEventListener('click', function () {
+            var uname = userName.querySelector('input').value;
+            if (uname == '') {} else if (uname == 'Administrator' || uname == 'administrator' || uname ==
+                'U1iz' || uname == 'admin' || uname == 'Admin') {
+                alert('此类名称不可注册');
+            } else {
+                localStorage.setItem("uselessHub_userName", uname);
+                localStorage.setItem("uselessHub_hadRegister", 1)
+                var user = localStorage.getItem('uselessHub_userName');
+                alert("欢迎 " + user + " !" + "\n" + "你的名称已被本地存储!");
+            }
+        });
+
+        var rme = document.getElementById('removeLocalName');
+        rme.style.height = "30px";
+        rme.style.width = "120px";
+        rme.style.backgroundColor = "#ccc";
+        rme.style.innerHTML = "注销账号";
+        rme.style.color = "#000";
+
+        var user = localStorage.getItem('uselessHub_userName');
+        var alR = localStorage.getItem('uselessHub_hadRegister');
+        alR == '1' ? alR = true : alR = false;
+
+        rme.addEventListener('click', function () {
+            if (alR) {
+                localStorage.setItem('uselessHub_hadRegister', 0);
+                localStorage.removeItem('uselessHub_userName');
+                alert('已删除你的个人信息');
+            } else {
+                alert('已删除了个寂寞');
+            }
+        });
+    </script>
+</body>
+
+</html>

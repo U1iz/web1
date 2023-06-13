@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <!-- <link rel="shortcut icon" href="././../../../img/favicon.png"> -->
+    <link rel="shortcut icon" href="http://res1433223.net3v.net/img/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 50px;
+        }
+
+        body {
+            background-color: #ddd;
+            background-color: rgb(130, 215, 208);
+        }
+
+        ::selection {
+            /* color: initial;
+        background-color: #e848936c; */
+            color: rgba(89, 0, 255, 0.72);
+            background-color: rgb(255, 176, 242);
+            text-shadow: none;
+        }
+
+        ::-moz-selection {
+            color: rgba(89, 0, 255, 0.72);
+            background-color: rgb(255, 176, 242);
+            text-shadow: none !important;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            /* color: rgb(86, 0, 167); */
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            width: 70%;
+            margin: 0 auto;
+            padding: 0.5rem 0;
+
+            border-radius: 1rem;
+            font: 800 1rem 'microsoft yaHei';
+            color: rgb(140, 45, 230);
+            background-color: #fff;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            width: 100%;
+            letter-spacing: 0.8rem;
+        }
+
+        .content {
+            width: 80% !important;
+            margin: 0 auto !important;
+        }
+
+        .title {
+            text-align: center;
+            font: 800 0.6rem 'microsoft yaHei';
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <h3 class="title">Program&Study笔记</h3>
+        <ul class="items">
+            <li>
+                <a href="http://96yzl.usa3v.vip/HTML/project/" target="_blank">
+                    <span>二号域</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://res1433223.net3v.net/HTML/notes/JavaScript/JavaScript.html" target="_blank">
+                    <span>JavaScript</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://res1433223.net3v.net/HTML/notes/HTML&CSS/HTML&CSS.html" target="_blank">
+                    <span>HTML/CSS</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/C/C.html" target="_blank">
+                    <span>C(C++,C#)</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/Python/Python.html" target="_blank">
+                    <span>Python</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/mySQL/mySQL.html" target="_blank">
+                    <span>mySQL</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/3ds_Max/3ds_Max.html" target="_blank">
+                    <span>3ds Max</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/main/Chinese/Chinese.html" target="_blank">
+                    <span>语 文</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/main/Math/Math.html" target="_blank">
+                    <span>数 学</span>
+                </a>
+            </li>
+            <li>
+
+                <a href="http://res1433223.net3v.net/HTML/notes/main/English/index.html" target="_blank">
+                    <span>英 语</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        (function () {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                document.documentElement.style.fontSize = '20px';
+            } else if (bIsIpad) {
+                document.documentElement.style.fontSize = '30px';
+            } else {
+                document.documentElement.style.fontSize = '50px';
+            }
+        }());
+        var lis = document.querySelector('.items').querySelectorAll('li');
+        for (var i = 0; i <= lis.length; i++) {
+            lis[i].style.marginBottom = '0.4rem';
+        }
+    </script>
+</body>
+
+</html>

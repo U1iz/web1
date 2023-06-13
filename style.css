@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+  z-index: 10;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+/* text {
+  background-color: rgba(60,120,180,1);
+  color: rgba(5, 5, 5, .8);
+}
+@import url("extra.css"); */
+
+@font-face {
+  font-family: FZNHT;
+  src: url("./font/FZNHT.otf");
+  src: url("./font/FZNHT.ttf");
+  src: url("./font/FZNHT.woff");
+  src: url("./font/FZNHT.woff2");
+}
+
+@font-face {
+  font-family: FZKaTong-M19S;
+  src: url("./font/FZHuangCao-S09S.otf");
+  src: url("./font/FZHuangCao-S09S.TTF");
+  src: url("./font/FZHuangCao-S09S.woff");
+  src: url("./font/FZHuangCao-S09S.woff2");
+}
+
+@font-face {
+  font-family: FZKaTong-M19S;
+  src: url("./font/FZKaTong-M19S.ttf");
+  src: url("./font/FZKaTong-M19S.otf");
+  src: url("./font/FZKaTong-M19S.woff");
+  src: url("./font/FZKaTong-M19S.woff2");
+}
+
+ol li {
+  position: absolute;
+  right: 0;
+  bottom: calc(11%);
+}
+
+ol li a h2 {
+  position: relative;
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: rgba(130, 0, 0, 0.6);
+  border-radius: 20px 0 0px 20px;
+  /*	box-shadow: -1px -1px 3px 1px #ddd;*/
+  box-shadow: 3px 3px 12px 1px #222;
+  transition: all 0.4s;
+}
+
+ol li h2::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: calc(0px + 8%);
+  width: calc(100% - 99%);
+  height: 4.2px;
+  border-radius: 24px;
+  background-color: rgba(104, 30, 223, 0);
+  transition: all 0.4s;
+}
+
+ol li a {
+  position: relative;
+  z-index: 1;
+  color: rgba(0, 180, 0, 0.6);
+  font: 500 16px FZKaTong-M19S;
+  transition: all 0.6s;
+}
+
+ol li a span {
+  display: inline-block;
+  width: 10px;
+  height: 0.1px;
+  transition: all 0.6s;
+}
+
+ol li a:hover {
+  color: rgba(0, 0, 0, 0.5);
+  font: 500 16px FZNHT;
+}
+
+ol li a h2:hover {
+  padding-right: 64px;
+  box-shadow: -2px 3px 12px 1px #222;
+  border-radius: 24px 0 0px 24px;
+  background-color: rgba(239, 239, 239, 0.7);
+}
+
+ol li a h2:hover::before {
+  width: calc(92%);
+  border-radius: 24px;
+  background-color: rgba(104, 30, 223, 0.6);
+}
+
+video {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  /* min-width: 10%; */
+  max-width: 1900px;
+  min-width: 90%;
+  /* min-height: 10%; */
+  max-height: 1080px;
+  height: auto;
+}
+
+canvas {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+track {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+ul {
+  margin-top: calc(20% + 10px);
+}
+
+.phone_ul {
+  margin-top: calc(64% - 10px) !important;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(10, 255, 228, 1);
+  transition: all 0.6s;
+}
+
+span {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 1px;
+  transition: all 0.3s;
+  /*	display: none;*/
+}
+
+div h1 {
+  position: relative;
+  display: inline-block;
+  /* left: -100px; */
+  margin: 10px auto;
+  padding: 5px 10px;
+  /* padding-left: 110px; */
+  border-radius: 0px 24px 24px 0px;
+  box-shadow: 3px 3px 12px 1px #222;
+  transition: all 0.8s;
+  background-color: rgba(255, 255, 255, 0.6);
+  font: 800 24px "microsoft yahei";
+}
+
+div h1:hover {
+  box-shadow: -6px 3px 16px 1px #222;
+}
+
+li {
+  display: block;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: 1%;
+  left: 0;
+  width: calc(100% - 95%);
+  height: 6px;
+  transition: all 1.2s;
+  border-radius: 0 10px 10px 0;
+  background-color: rgba(255, 122, 124, 0);
+}
+
+a:hover {
+  color: rgba(8, 204, 182, .8);
+}
+
+h1:hover {
+  padding-left: calc(160px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+h1:hover::before {
+  position: absolute;
+  left: 0;
+  width: calc(100% - 4%);
+  height: 6px;
+  border-radius: 0 30px 30px 0;
+  background-color: rgba(255, 122, 124, 1);
+}
+
+a:active {
+  color: rgba(5, 145, 128, .9);
+}
+
+h1:active {
+  background-color: #ddd;
+}
+
+.top_tip {
+  position: absolute;
+  left: 0;
+  top: calc(1% + 0.2rem);
+  width: calc(100% - 70px);
+  height: 60px;
+
+}
+
+.top_tip::before {
+  content: '做有意义的事！';
+  position: absolute;
+  z-index: 2;
+  top: 10rem;
+  left: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font: 500 24px "microsoft yahei";
+  background-color: rgba(255, 255, 255, 0.315);
+}
+
+.top_tip::after {
+  /* content: '任何着急用钱的话语从网络的另一头发来都有可能是诈骗，数额较大的，一定要问清楚原因，用途，获取相关权威证明'; */
+  content: "为尽可能不出现“奇怪的适配”问题，请尽可能使用新版内核浏览器进行浏览";
+  position: absolute;
+  z-index: 2;
+  top: 0%;
+  left: 12%;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font: 500 16px "microsoft yahei";
+  background-color: rgba(200, 255, 255, 0.4);
+}
+
+.timer {
+  position: absolute;
+  cursor: default;
+  z-index: 3;
+  top: 6%;
+  right: 0;
+  padding: 5px 12px;
+  padding-left: 18px;
+  border-radius: 24px 0px 0px 24px;
+  box-shadow: 4px 1px 6px 1px #666;
+  /*	background-color: rgba(0,189,27,1.00);*/
+  background-color: rgba(195, 237, 40, .3);
+  font: 500 16px 'microsoft yahei';
+  color: #ccc;
+  transition: all 0.4s;
+}
+
+.timer:hover {
+  /*	margin-bottom: 18px;*/
+  padding-right: 24px;
+  box-shadow: -2px 1px 12px 1px #555;
+  font: 600 16px 'microsoft yahei';
+}

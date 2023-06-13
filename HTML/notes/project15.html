@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x**3 + y**3 + z**3 = xyz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s;
+        }
+
+        body {
+            background-color: #ccc;
+        }
+
+        a:visited {
+            color: rgb(36, 18, 240);
+        }
+
+        ul {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 40%;
+            height: 40%;
+            min-width: 340px;
+            min-height: 260px;
+            background-color: #eee;
+            border-radius: 12px;
+            box-shadow: -6px -4px 12px 0px rgba(40, 40, 40, 0.3);
+        }
+
+        li {
+            text-align: center;
+            list-style-type: none;
+            font: 400 22px 'microsoft yaHei';
+            margin: 6px auto;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        input {
+            position: relative;
+            border: none;
+            outline: none;
+            text-align: center;
+            width: 30%;
+            height: 80%;
+            min-width: 180px;
+            min-height: 46px;
+            margin: 5px auto;
+            border-radius: 32px;
+            color: #666;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            width: 80px;
+            height: 46px;
+            background-color: #ccc;
+            border-radius: 24px;
+        }
+
+        button:active {
+            background-color: #aaa;
+        }
+
+        .uLine {
+            position: relative;
+        }
+
+        .uLine::before {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            bottom: calc(0px);
+            left: 0;
+            height: 4px;
+            width: calc(100% - 0%);
+            background-color: rgba(75, 240, 207, .3);
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <input type="text" value="输入三位数字" id="userI" maxlength="3">
+            <i id="i"
+                style="position: absolute;top: 25px;right: calc(50% - 320px);font: 400 12px 'microsoft yaHei';font-style: normal;cursor: default;">回车执行('alt'解除限制;'ctrl'返回)</i>
+        </li>
+        <li>
+            <button id="userClick">计算</button>
+        </li>
+        <li class="uLine" id="inNum" style="margin-top: 16px;"></li>
+        <li class="uLine" id="outNum"></li>
+        <li class="uLine" id="outInt"></li>
+        <li></li>
+    </ul>
+    <footer style="
+    position: absolute;
+    right: 2%;
+    bottom: 2%;
+    ">
+        by: <a href="http://res1433223.net3v.net/">http://res1433223.net3v.net/</a>
+        <div>
+            <a href="http://res1433223.net3v.net/HTML/about.htm">关于</a>
+            /
+            <a href="http://res1433223.net3v.net/HTML/Good%20guy.htm">赞助我</a>
+        </div>
+    </footer>
+    <script>
+        function browserRedirect() {
+            // 设备识别
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsIpad) {
+                document.getElementById('i').style.display = "none";
+            }
+        };
+        browserRedirect()
+        // 正题
+        var inputNum = document.getElementById("inNum");
+        var outputFst = document.getElementById('outNum');
+        var outputSec = document.getElementById('outInt');
+        var input = document.getElementById('userI');
+        var btn = document.getElementById('userClick')
+        // var inMaxL = input.getAttribute('maxLength');
+        // console.log(input.getAttribute('maxLength'));
+        input.addEventListener('focus', function () {
+            this.value = '';
+        });
+        input.addEventListener('blur', function () {
+            setTimeout(function () { input.value = '输入三位数字'; }, 100);
+        });
+        document.addEventListener('keyup', function (e) {
+            // console.log(e.keyCode);
+            if (e.keyCode === 13) {
+                number(input.value);
+            } else if (e.keyCode === 18) {
+                input.maxLength = '9999999';
+                console.log(input.getAttribute('maxLength'));
+            } else if (e.keyCode === 17) {
+                input.maxLength = '3';
+            }
+        });
+        btn.onclick = function () {
+            number(input.value);
+        };
+
+        // var n1, n2, n3;
+        function number(inNum) {
+            var n1 = inNum % 10;
+            var n2 = (inNum - n1) / 10 % 10;
+            var n3 = ((inNum - n1) / 10 - n2) / 10;
+            var outNum = n1 * 100 + n2 * 10 + n3;
+            var numSum = n1 * n1 * n1 + n2 * n2 * n2 + n3 * n3 * n3;
+            inputNum.innerHTML = '输入的数字是：' + inNum;
+            outputFst.innerHTML = "个位：" + n1 + '; ' + " 十位：" + n2 + '; ' + " 百位：" + n3 + '; ';
+            outputSec.innerHTML = '各位3次方和： ' + numSum;
+            // console.log("各位：" + n1 + "十位：" + n2 + "百位：" + n3);
+        };
+        var n001 = 100;
+        var div = document.createElement("div");
+        while (n001 <= 999) {
+            var n1 = n001 % 10;
+            var n2 = (n001 - n1) / 10 % 10;
+            var n3 = ((n001 - n1) / 10 - n2) / 10;
+            var nMul = n3 * 100 + n2 * 10 + n1;//multiply
+            var numSum = n1 * n1 * n1 + n2 * n2 * n2 + n3 * n3 * n3;
+            if (numSum == nMul) {
+                console.log(n001);
+                document.body.appendChild(div).innerHTML += "符合条件的数字之一：" + n001 + " ; ";
+            };
+            n001++;
+        };
+    </script>
+</body>
+
+</html>

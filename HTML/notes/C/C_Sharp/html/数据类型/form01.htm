@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        #notranslate {
+            font-size: 1.2em;
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #333;
+            -webkit-text-size-adjust: none;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 4px;
+            margin-top: 4px;
+            border-radius: 128px;
+            overflow: hidden;
+        }
+
+        #notranslate tr {
+            font-size: 1.2em;
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #333;
+            -webkit-text-size-adjust: none;
+            border-collapse: collapse;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f4f0;
+        }
+
+        #notranslate th {
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            border-collapse: collapse;
+            margin: 0;
+            color: #fff;
+            background-color: #555;
+            border: 1px solid #555;
+            font-size: 13px;
+            padding: 3px;
+            vertical-align: top;
+            text-align: left;
+            width: 10%;
+        }
+
+        #notranslate td {
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #333;
+            -webkit-text-size-adjust: none;
+            border-collapse: collapse;
+            margin: 0;
+            font-size: 13px;
+            line-height: 2em;
+            min-width: 24px;
+            border: 1px solid #d4d4d4;
+            padding: 5px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            vertical-align: top;
+        }
+
+        #notranslate tbody tr:nth-child(2n) {
+            font-size: 1.2em;
+            font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #333;
+            -webkit-text-size-adjust: none;
+            border-collapse: collapse;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+    </style>
+    <table id="notranslate">
+        <tbody>
+            <tr>
+                <th style="width:10%;">类型</th>
+                <th style="width:35%;">描述</th>
+                <th style="width:45%;">范围</th>
+                <th style="width:10%;">默认值</th>
+            </tr>
+            <tr>
+                <td>bool</td>
+                <td>布尔值</td>
+                <td>True 或 False</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>byte</td>
+                <td>8 位无符号整数</td>
+                <td>0 到 255</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>char</td>
+                <td>16 位 Unicode 字符</td>
+                <td>U +0000 到 U +ffff</td>
+                <td>'\0'</td>
+            </tr>
+            <tr>
+                <td>decimal</td>
+                <td>128 位精确的十进制值，28-29 有效位数</td>
+                <td>(-7.9 x 10<sup>28</sup> 到 7.9 x 10<sup>28</sup>) / 10<sup>0 到 28</sup> </td>
+                <td>0.0M</td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>64 位双精度浮点型</td>
+                <td>(+/-)5.0 x 10<sup>-324</sup> 到 (+/-)1.7 x 10<sup>308</sup></td>
+                <td>0.0D</td>
+            </tr>
+            <tr>
+                <td>float</td>
+                <td>32 位单精度浮点型</td>
+                <td>-3.4 x 10<sup>38</sup> 到 + 3.4 x 10<sup>38</sup></td>
+                <td>0.0F</td>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>32 位有符号整数类型</td>
+                <td>-2,147,483,648 到 2,147,483,647</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>long</td>
+                <td>64 位有符号整数类型</td>
+                <td>-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807 </td>
+                <td>0L</td>
+            </tr>
+            <tr>
+                <td>sbyte</td>
+                <td>8 位有符号整数类型</td>
+                <td>-128 到 127</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>short</td>
+                <td>16 位有符号整数类型</td>
+                <td>-32,768 到 32,767</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uint</td>
+                <td>32 位无符号整数类型</td>
+                <td>0 到 4,294,967,295</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>ulong</td>
+                <td>64 位无符号整数类型</td>
+                <td>0 到 18,446,744,073,709,551,615</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>ushort</td>
+                <td>16 位无符号整数类型</td>
+                <td>0 到 65,535</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

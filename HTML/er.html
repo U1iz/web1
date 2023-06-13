@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>svg</title>
+    <style>  
+        svg{
+ 
+            transform: rotateX(180deg);
+        }
+    </style>
+    <script>
+             
+        window.addEventListener('load',function(){
+         
+            var svg_ns = 'http://www.w3.org/2000/svg';
+            var svg = document.createElementNS(svg_ns,'svg');
+            var svgFrg = document.createDocumentFragment();
+         
+            var y = function(x){
+         
+                // 你写的这是个一次函数
+                // return -1/5*(x-50)+50;
+                 
+                // 根据我多年的经验这才是二次函数 你也可以试试
+                return -1/50*(Math.pow(x,2)-50)+50;
+            };
+             
+            var lineTo = function(x1,y1,x2,y2){
+             
+                var line = document.createElementNS(svg_ns,'line');
+                line.setAttribute('x1',x1);
+                line.setAttribute('y1',y1);
+                line.setAttribute('x2',x2);
+                line.setAttribute('y2',y2);
+                line.setAttribute('stroke','black');
+                line.setAttribute('stroke-width',1);
+                svgFrg.appendChild(line);
+            };
+             
+            // size 粒度
+            var draw = function(range,size){
+             
+                for(var i=1*size;i<=range*size;i+=size){
+         
+                    lineTo(i-size,y(i-size),i,y(i));       
+                }
+            };
+         
+            draw(200,1);
+            svg.setAttribute('height','200');
+            svg.setAttribute('width','200');
+            svg.appendChild(svgFrg);
+            document.body.appendChild(svg);
+         
+        });
+         
+    </script>
+</head>
+<body>
+</body>
+</html>

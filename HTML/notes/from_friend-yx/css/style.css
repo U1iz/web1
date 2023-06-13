@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 32px;
+}
+li {
+    list-style-type: none;
+}
+body {
+    background-color: #ccc !important;
+}
+
+#typeContent {
+    position: relative;
+    background-color: #fff;
+    width: 70%;
+    margin: 10% auto;
+    top: 40%;
+}
+
+h1 {
+    cursor: pointer;
+    text-align: center;
+    margin: 0.3rem auto;
+    color: #000;
+    font-size: 1.4rem;
+}
+
+#typeContent h1 {
+    position: relative;
+    left: 0;top: 0;
+    transform:rotate(0deg);
+    transition: all 0.3s;
+    box-shadow: 1px 1px 12px 1px rgba(0,0,0,1);
+}
+#typeContent h1:hover {
+    left: 1rem;
+    transform:rotate(7deg);
+    letter-spacing: 0.24rem;
+    background-color: #ccc;
+    box-shadow: 1px 1px 12px 1px rgba(0,0,0,.2);
+    background-color: rgba(0,0,0,.6);
+}
+
+.uip {
+    position: absolute !important;
+    bottom: 5%;
+    background-color: transparent;
+
+}
+.uip li input {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    text-indent: 0.2rem;
+    border: none;
+    outline: none;
+    width: 20%;
+    min-width: 4.6rem;
+    height: 1.2rem;
+    font: 800 0.6rem 'MicroSoft YaHei';
+    line-height: 1.2rem;
+    background-color: transparent;
+    border-bottom: 1px solid;
+}
+.uip li button {
+    position: relative;
+    left: 0;
+    cursor: pointer;
+    height: 2.4em;
+    width: 3.2rem;
+    font: 800 0.6rem 'MicroSoft YaHei';
+    color: rgba(73, 32, 32, 0.4);
+    border-radius: 0 16px 16px 0;
+    border: rgba(0, 0, 0, 0.2) solid;
+    transition: all 0.4s;
+}
+
+.uip li button:hover {
+    width: 6.4em;
+    left: 0.6rem;
+    border-radius: 32px;
+    border: rgba(0, 0, 0, 0.3) solid;
+    color: rgba(73, 32, 32, 0.6);
+    background-color: rgba(130, 215, 208,.1);
+}

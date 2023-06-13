@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, 
+    maximum-scale=1.0, minimum-scale=1.0"> -->
+    <title>简易计算器</title>
+    <link rel="shortcut icon" href="http://res1433223.net3v.net/img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://res1433223.net3v.net/HTML/project/Calculator/css/style.css">
+    <style>
+        @font-face {
+            font-family: lcdD;
+            src: url('source/font/lcdD.ttf');
+        }
+
+        .c_family_c {
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+            font-size: 1.6rem;
+        }
+
+        #c {
+            position: relative;
+            top: 0.3rem;
+            width: 3.2rem;
+            height: 2rem;
+            font-size: 0.3rem;
+            white-space: nowrap
+        }
+    </style>
+</head>
+
+<body>
+    <div class="c_family_c">
+        <span class="c_family">风格切换(1/2/3)</span>
+        <input type="text" id="i_family" placeholder="1/2/3">
+        <button id="c">执行</button>
+    </div>
+    <!-- 640 1000 -->
+    <div class="body" id="container">
+        <!-- 80  -->
+        <div style="height: 4rem;background-color:#ddd;" class="temp" id="ctrl_bar">
+            <h1 style="cursor: default;font: 400 1rem arial;line-height: 4rem;text-indent: 2rem;"
+                onselectstart="return false">计算器</h1>
+        </div>
+        <!-- 64 -->
+        <div style="height: 3.2rem; background-color:#eee;"></div>
+        <!-- 568 38 -->
+        <!-- <textarea name="" id="show1" cols="30" rows="0" style="resize:none" class="t_area_process"></textarea> -->
+        <span class="t_area_process" style="position: absolute;top: 7.2rem;">
+            <h3 id="show1"></h3>
+        </span>
+        <!-- 640 144 -->
+        <!-- <textarea name="" id="show2" cols="30" rows="10" style="resize:none" class="t_area_result"></textarea> -->
+        <div class="t_area_result" style="position: relative;top: 1.9rem;">
+            <h2 id="show2"></h2>
+        </div>
+
+        <!-- 59 mb 1 -->
+        <div style="height: 2.95rem;margin-bottom: 1px;background-color: #fcfcfc;position: relative;top: 1.9rem;"></div>
+        <div class="btn_container" id="btn_c" style="position: relative;top: 1.9rem;">
+            <ul id="fst">
+                <li id="remainder" title="取余数" value=" % ">&nbsp;%&nbsp;</li>
+                <li id="allClear">CE</li>
+                <li id="e_clear">C</li>
+                <li id="del">
+                    <!-- <img src="source/svg/del.svg" alt="" class="del_ico"> -->
+                    <img src="http://res1433223.net3v.net/HTML/project/Calculator/source/svg/del.svg" alt="" class="del_ico">
+                </li>
+            </ul>
+            <ul id="sec">
+                <li title="暂无">¹/ₓ</li>
+                <li title="暂无">x²</li>
+                <li title="暂无">²√x</li>
+                <li id="divide" title="除" value=" / ">&nbsp;/&nbsp;</li>
+                <!-- <li id="divide" title="除" value="÷">&nbsp;÷&nbsp;</li> -->
+            </ul>
+            <ul id="thd">
+                <li id="seven" value='7'>7</li>
+                <li id="eight" value='8'>8</li>
+                <li id="nine" value='9'>9</li>
+                <li id="multiply" title="乘" value=" * ">&nbsp;*&nbsp;</li>
+                <!-- <li id="multiply" title="乘" value="×">&nbsp;×&nbsp;</li> -->
+            </ul>
+            <ul id="foh">
+                <li id="four" value='4'>4</li>
+                <li id="five" value='5'>5</li>
+                <li id="six" value='6'>6</li>
+                <li id="minus" title="减" value=" - ">&nbsp;-&nbsp;</li>
+            </ul>
+            <ul id="fih">
+                <li id="one" value='1'>1</li>
+                <li id="two" value='2'>2</li>
+                <li id="three" value='3'>3</li>
+                <li id="plus" title="加" value=' + '>&nbsp;+&nbsp;</li>
+            </ul>
+            <ul id="sxh">
+                <li id="change" title="正负切换">⁺/₋</li><!-- switch -->
+                <li id="zero" value='0'>0</li>
+                <li id="point" value=' . '>.</li>
+                <li id="equal" title="等于">=</li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        .input input {
+            outline: none !important;
+            border: none !important;
+            background-color: transparent !important;
+            color: #999;
+            position: absolute;
+            left: 2rem;
+            bottom: 0.5rem;
+            /* display: none; */
+        }
+
+        #tip {
+            box-sizing: border-box;
+            position: absolute;
+            top: 10%;
+            left: 0.5rem;
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, .2);
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        .u {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            text-align: right;
+            font-size: 0.3rem;
+            color: #bbb;
+        }
+    </style>
+    <div class="input">
+        <input type="text" id="i">
+    </div>
+    <div class="u">
+        <p>author: @yzl github_user: @U1iz</p>
+        <p>未经允许,禁止转载</p>
+    </div>
+    <div id="tip">
+        <h1>快捷键大全(1s内点我6次关闭)</h1>
+        <p>英文键盘 0~9</p>
+        <p>数字键盘 0~9</p>
+        <br>
+
+        <p>英文键盘 +(shift + '='); - , *(shift + '8'); /</p>
+        <p>数字键盘 + - * /</p>
+        <br>
+        <p>全部清除 ESC</p>
+        <br>
+
+        <p>切换样式 j; k; l;</p>
+        <br>
+
+        <p> *, / 与 ×, ÷ 互切换 space</p>
+
+        <h2>else</h2>
+        <p>聚焦切换样式输入框 s</p>
+        <p>执行样式切换 alt + enter</p>
+        <br>
+        <p>自带浏览器更改大小 ctrl + '+/-'</p>
+        <br>
+        <h3>百分比符号的功能改成了取余数</h3>
+        <h2>浮点数的运算有精度问题，慎用!</h2>
+        <div id="apr_btn" style="
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 2.4rem solid transparent;
+            border-left: 1.2rem solid rgb(163, 163, 163);
+            display: none;
+            cursor: pointer;
+        "></div>
+    </div>
+
+    <script>
+        var step = 0;
+        var t = document.getElementById('tip');
+        // t.ondblclick = function () {
+        t.onclick = function () {
+            step++;
+            console.log(step);
+            if (step == 6) {
+                this.remove();
+            }
+            setTimeout(function () {
+                step = 0
+            }, 1200);
+        }
+        var btn = document.getElementById('apr_btn');
+
+        btn.style.left = t.clientWidth - btn.clientWidth / 2 + 'px';
+        btn.style.top = t.clientHeight / 2 - btn.clientHeight / 2 + 'px';
+        t.addEventListener('click', function () {
+            animate(t, -t.clientWidth);
+            animate(btn, t.clientWidth);
+
+            // btn.style.display = "block";
+
+        })
+        btn.addEventListener('click', function () {
+            animate(t, t.clientWidth);
+            btn.style.display = "none";
+        })
+    </script>
+    <script>
+        function animate(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+            }, 15);
+        }
+        (function () {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                document.documentElement.style.fontSize = '8px';
+            } else if (bIsIpad) {
+                document.documentElement.style.fontSize = '12px';
+            } else {
+                document.documentElement.style.fontSize = '18px';
+            }
+        }());
+    </script>
+    <!-- <script src="js/style.js"></script>
+    <script src="js/add.js"></script>
+    <script src="js/move_fun.js"></script> -->
+    <script src="http://res1433223.net3v.net/HTML/project/Calculator/js/style.js"></script>
+    <script src="http://res1433223.net3v.net/HTML/project/Calculator/js/add.js"></script>
+    <script src="http://res1433223.net3v.net/HTML/project/Calculator/js/move_fun.js"></script>
+    <!-- osk.exe -->
+</body>
+
+</html>
+

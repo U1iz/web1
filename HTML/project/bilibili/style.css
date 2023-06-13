@@ -1,0 +1,424 @@
+/* 全局变量 */
+* {
+  	margin: 0px;
+  	padding: 0px;
+}
+a {
+  text-decoration: none;
+  color: #eee;
+}
+li {
+  list-style-type: none;
+}
+i,
+em {
+  font-style: normal;
+}
+.tac {
+  text-align: center;
+}
+
+/* 全局调用部分 */
+.w {
+  width: 1630px;
+  margin: 0 auto;
+  background-color: #ccc;
+}
+.fw {
+  width: 100%;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.ib {
+  display: inline-block;
+}
+.b {
+  display: block;
+}
+
+/* 字体声明 使用需要添加 style="font-family: bilifont" 属性 */
+/*使用该字体的位置*/
+@font-face {
+  font-family: bilifont;
+  src: url("./font/bilifont.ttf"); /* TTF file for CSS3 browsers */
+}
+.top-banner-use-logo ul li a {
+  font: 500 24px bilifont;
+}
+.top-banner-use-search ul li span a {
+  position: relative;
+  top: -5px;
+  padding: 4px;
+  font: 400 18.3333px bilifont;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.top-banner-user-update ul li a {
+  display: inline-block;
+  padding: 16px 2px;
+  transition: background-color 0.3s;
+  font: 500 17.5px bilifont;
+}
+
+/* 顶部导航栏部分 */
+.top-banner div ul > li {
+  display: inline-block;
+}
+
+.top-banner-use-logo ul a {
+  /*	顶部logo链接*/
+  /* float: left; */
+  display: inline-block;
+  padding: 13px 10px;
+  transition: background-color 0.3s;
+  color: #00a0d8;
+}
+.top-banner-use-logo {
+  margin-left: 47.6px;
+}
+
+.top-banner-video ul {
+  /*	顶部导航栏动图位置*/
+  position: absolute;
+  display: block;
+  z-index: -1;
+  left: 0px;
+  top: 0px;
+}
+
+.top-banner-useless li a {
+  /*	logo旁导航*/
+  /* float: left; */
+  display: inline-block;
+  padding: 17px 10px;
+  transition: background-color 0.3s;
+  color: #eee;
+  font: 13.3333px -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+    Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+}
+.top-banner-useless li {
+  /*	解决li之间空隙*/
+  float: left;
+  margin: 0;
+}
+/* 顶部导航栏动作 */
+.top-banner-useless li a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.top-banner-use-logo li a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.top-banner-use-search {
+  float: left;
+  margin-top: 14px;
+  width: 249px;
+  height: 26px;
+  line-height: 30px;
+  border-bottom: 1.5px solid !important;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.top-banner-use-search-input {
+  /*	搜索栏属性*/
+  position: relative;
+  top: -7px;
+  border: none;
+  display: inline-block;
+  /* float: left; */
+  padding: 0px 48px 0px 4px;
+  width: 160px;
+  height: 60%;
+  background: 0 0;
+  /*	确保点击input时不会出现边框*/
+  outline: none;
+  font: 13.3333px -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+    Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+}
+
+input::-webkit-input-placeholder {
+  /*	palceholder属性 webit内核*/
+  color: rgba(255, 255, 255, 0.2);
+}
+.top-banner-use-search ul li span {
+  display: inline-block;
+  /* float: right; */
+}
+.top-banner-use-search ul li span {
+  /* float: left; */
+  display: inline-block;
+}
+
+.top-banner-useless {
+  position: relative;
+}
+
+.top-banner-use-logo {
+  position: relative;
+  top: -1px;
+}
+
+.top-banner-user-pic {
+  /*	用户头像*/
+  float: left;
+  margin-top: 8px;
+  border-radius: 36px;
+  width: 32px;
+  height: 32px;
+  /* transition: relative 3s; */
+	/* background: url("./images/noface.png") no-repeat; */
+/*	background-size: 32px 32px;*/
+/*	background-position: 17.7% 17.7%;*/
+  /*	transition: width .3s;*/
+  /*	transition: border-radius .6s;*/
+}
+.top-banner-user-pic img {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  /* transition: height 0.3s , width 0.3s , right 0.3s , bottom 0.3s; */
+  transition: all 0.3s;
+}
+.top-banner-user-pic img:hover {
+  position: relative;
+	z-index: 1;
+  right: 7px;
+  bottom: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+	/* background: url("./images/noface_hover.png") */
+}
+
+.between-search-user_pic {
+  /*	间距*/
+  float: left;
+  width: 12.576687%;
+  height: 30px;
+}
+
+.between-top_banner_useless-search {
+  /*	间距*/
+  float: left;
+  width: 12.269939%;
+  height: 30px;
+}
+
+.top-banner-userful-link a {
+  /*	顶部右侧导航栏*/
+  display: inline-block;
+  padding: 17px 10px;
+  transition: background-color 0.3s;
+  line-height: 20px;
+  font: 500 13.3333px Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
+    sans-serif;
+  color: #eee;
+}
+.top-banner-userful-link a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.top-banner-useful {
+  padding-left: 10px;
+}
+
+.notify-count {
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  background-color: #00a0d8;
+  padding: 0 px;
+  display: flex;
+  justify-content: center;
+  font-size: 11px;
+  transform: translateX(-50%);
+  opacity: 1;
+  line-height: 14px;
+  white-space: nowrap;
+  color: #eee;
+  border-radius: 0 0 8px 8px;
+}
+
+.top-banner-userful-link {
+  position: relative;
+}
+
+.top-banner-user-update ul .update a {
+  display: inline-block;
+  transition: background-color 0.3s;
+  font: 500 16.5px bilifont;
+}
+.top-banner-user-update {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.top-banner-user-update:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.top-banner-user-update ul li .update_logo {
+  padding: 16px 2px;
+}
+.main-content {
+  font: 12px -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  list-style: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: 0.2s ease-out;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0 !important;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  font-size: 10pt;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #eee;
+  user-select: none;
+}
+.top-banner-user-costom a {
+  display: inline-block;
+  padding: 16px 10px;
+  color: #eee;
+}
+.top-banner-user-costom a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.rel-top li img {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  background-image: url("./images/rel_top.png");
+  background-color: #000000;
+}
+.light-box {
+  width: 1920px;
+  height: 100px;
+  background-image: linear-gradient(0deg, transparent, #212121);
+}
+
+.list-box {
+/*	右侧导航栏*/
+	position: absolute;
+	left: 50%;
+	top: 420px;
+	margin-left: 43.229167%;
+	width: 56px;
+	text-align: center;
+	background-color: #444;
+	border-radius: 12px 12px 0 0;
+  font: 12px -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+}
+.special-box .list-box a div ,
+.item-bottom a h3 ,
+.item-bottom a div{
+	transition: background-color .3s;
+}
+.special-box .list-box a div:hover {
+	background-color: #00A0D8 !important;
+}
+.item-bottom a h3:hover,
+.item-bottom a div:hover {
+	background-color: #00A0D8;
+}
+.list-box div {
+	padding: 2px 0px;
+}
+
+
+
+/*
+.special-box {
+	position: sticky;
+	top: 150px;
+}
+*/
+
+.temp {
+	margin-top: 200px;
+	height: 2160px;
+}
+
+.ear {
+	position: absolute;
+	z-index: 0;
+	left: 50%;
+	margin-left: 43.023%;
+	top: 403.5px;
+	width: 56px;
+	text-align: center;
+  	font: 100 63px bilifont;
+	color: #aaa;
+	
+}
+
+.item-bottom {
+	position: absolute;
+	left: 50%;
+	top: 1084px;
+	margin-left: 43.229167%;
+	width: 56px;
+	text-align: center;
+ 	font: 100 20px bilifont;
+	background-color: #444;
+	border-radius: 0 0 12px 12px;
+}
+.item-bottom div {
+	font: 500 28px bilifont;
+	padding: 2px 0px;
+	margin-bottom: 6px;
+	padding-top: 6px;
+	color: #bbb;
+}
+.special-box .item-bottom h3 {
+	font-weight: 100;
+	width: 56px;
+	border-top: 1px solid #e7e7e7;
+	color: #bbb;
+	padding-top: 6px;
+}
+
+.item-last {
+	margin-bottom: 6px;
+}
+
+.top-banner-use {
+	z-index: 1;
+  	left: 0px;
+  	top: 0px;
+}
+
+a .item {
+	padding: 5px 0;
+}
+
+.special-box .list-box a .item-top {
+	margin-top: 8px;
+}
+
+
+
+

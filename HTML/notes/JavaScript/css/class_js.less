@@ -1,0 +1,152 @@
+@backgroundColor_global: #fff;
+@backgroundColor_local: rgba(160, 160, 160, 1);
+@bgC_js: rgb(220, 200, 64);
+@bgC_jQ: rgb(30, 110, 220);
+@color_global: rgb(70, 70, 70);
+@font_h1: 800 1.6rem "Microsoft YaHei";
+@font_h1_1: 800 1.8rem "Microsoft YaHei";
+@font_h2: 600 1.2rem "Microsoft YaHei";
+
+* {
+    cursor: default;
+    padding: 0;
+    margin: 0;
+    border-radius: 6px;
+    color: @backgroundColor_global;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: @color_global;
+
+    li {
+        list-style-type: none;
+    }
+}
+
+.main {
+    @local_width: 8.4rem;
+    position: relative;
+    // overflow: hidden;
+    margin: 6rem auto;
+    height: 24rem;
+    width: 36rem;
+    background-color: @backgroundColor_local;
+    transition: all 0.4s;
+
+    &:hover {
+        background-color: @backgroundColor_local * 1.02;
+        box-shadow: 1px 1px 12px @backgroundColor_local * 1.04;
+    }
+
+    .title_h1 {
+        position: relative;
+        display: block;
+        text-align: center;
+        margin: 1.2rem auto;
+        max-width: @local_width * 1.2;
+        top: 0.6rem;
+        font: @font_h1;
+        transition: all 0.3s;
+
+        &:hover {
+            top: 0.4rem;
+            font: @font_h1_1;
+            margin: 1rem auto;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: calc(50% - @local_width / 20);
+            width: (@local_width / 10);
+            height: 0.2rem;
+            border-radius: 16px;
+            background-color: transparent;
+            transition: all 0.3s;
+        }
+
+        &:hover::before {
+            left: calc(50% - @local_width / 2);
+            width: @local_width;
+            background-color: #444;
+        }
+    }
+
+    .branch {
+        height: calc(100% - 4.5rem);
+
+        .title_js,
+        .title_jQ {
+            text-align: center;
+            cursor: pointer;
+            float: left;
+            display: block;
+            font: @font_h2;
+            width: 44%;
+            height: 100%;
+            line-height: 8rem;
+            margin-left: 4%;
+            transition: all 0.3s;
+        }
+
+        .title_js {
+            background-color: @bgC_js;
+
+            &:hover {
+                background-color: @bgC_js * 1.12;
+                box-shadow: 1px 1px 12px @bgC_js * 1.2;
+            }
+        }
+
+        .title_jQ {
+            background-color: @bgC_jQ;
+
+            &:hover {
+                background-color: @bgC_jQ * 1.12;
+                box-shadow: 1px 1px 12px @bgC_jQ * 1.2;
+            }
+        }
+    }
+
+    .line1,
+    .line2,
+    .line3,
+    .line4 {
+        position: absolute;
+        background-color: rgba(120, 46, 200, 0.96);
+        transition: all 0.6s;
+    }
+
+    .line1,
+    .line2 {
+        width: 0%;
+        height: 0.2rem;
+    }
+
+    .line1 {
+        top: 0;
+        left: 0;
+    }
+
+    .line2 {
+        top: calc(100% - 0.2rem);
+        left: 100%;
+    }
+
+    .line3,
+    .line4 {
+        width: 0.2rem;
+        height: 0%;
+    }
+
+    .line3 {
+        top: 100%;
+        left: 0;
+    }
+    .line4 {
+        top: 0;
+        left: calc(100% - 0.2rem);
+    }
+}

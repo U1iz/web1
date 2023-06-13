@@ -1,0 +1,28 @@
+@global_fontSize: 24px;
+@body_color: rgba(209, 209, 209, 0.952);
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    font-style: normal;
+}
+
+html {
+    font-size: @global_fontSize;
+
+}
+
+body {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    max-width: 640px;
+    background-color: @body_color;
+
+    li {
+        list-style-type: none;
+    }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>ToDoList—最简单的待办事项列表</title>
+		<meta name="description" content="ToDoList无须注册即可使用，数据存储在用户浏览器的html5本地数据库里，是最简单最安全的待办事项列表应用！" />
+		<link rel="stylesheet" href="./css/index.css">
+	</head>
+	<body>
+		<header>
+			<section>
+				<form action="" id="form" onclick="">
+					<label for="title">ToDoList</label>
+					<input type="text" id="title" name="title" placeholder="添加ToDo" required="required"
+						autocomplete="off" />
+				</form>
+			</section>
+		</header>
+		<section>
+			<h2>正在进行 <span id="todocount">0</span></h2>
+			<ol id="todolist" class="demo-box">
+
+			</ol>
+			<h2>已经完成 <span id="donecount">0</span></h2>
+			<ul id="donelist">
+			</ul>
+		</section>
+		<footer>
+			Copyright &copy; 2014 todolist.cn <a href="javascript:clear();">clear</a>
+		</footer>
+		<script type="text/javascript">
+			var title = document.querySelector('#title');
+			var ol = document.querySelector('#todolist')
+			var ul = document.querySelector('#donelist')
+			load();
+			// 添加li
+			title.addEventListener('keydown', function(e) {
+				e = e || window.event;
+				if (e.keyCode == 13) {
+					if (title.value == '') {
+						return
+					} else {
+						var todolist = {
+							title: title.value,
+							done: false
+						}
+						var arr = getdata();
+						arr.push(todolist);
+						saveData(arr);
+						load()
+					}
+				}
+			})  
+			//存储数据
+			function saveData(todolist) {
+				return window.localStorage.setItem('todo', JSON.stringify(todolist))//转化为字符串存储
+			}
+			//获取数据并存储
+			function getdata() {
+				var data = window.localStorage.getItem('todo')
+				if (data) {
+					return JSON.parse(data); //转化为对象
+				} else {
+					return [];
+				}
+			}
+			//刷新
+			function load() {
+				//获取最新的存储数据
+				var ol = document.querySelector('#todolist')
+				var ul = document.querySelector('#donelist')
+				var todoCount = document.querySelector('#todocount');
+				var doneCount = document.querySelector('#donecount');
+				var num = 0;
+				var data = getdata()
+				//删除原来的子节点，重新填入
+				var childs = ol.childNodes;
+				for (var i = childs.length - 1; i >= 0; i--) {
+					ol.removeChild(childs[i]);
+				}
+				var childs = ul.childNodes;
+				for (var i = childs.length - 1; i >= 0; i--) {
+					ul.removeChild(childs[i]);
+				}
+				var todocount = 0;
+				var donecount = 0;
+				data.forEach(function(item, index) {
+					var li = document.createElement('li')
+					li.innerHTML = "<input class='change' type='checkbox'/><p>" + item.title + "</p><a href='#'></a>";
+					li.className = num++;
+					if (item.done) {
+						ul.insertBefore(li, ul.children[0])
+						li.children[0].checked = 'checked'
+						donecount++
+					} else {
+						ol.insertBefore(li, ol.children[0])
+						todocount++
+					}
+				})
+				todoCount.innerText = todocount
+				doneCount.innerText = donecount
+			}
+			//删除
+			ol.addEventListener('click', function(e) {
+				e = e || window.event;
+				if (e.target.nodeName == 'A') {
+					ol.removeChild(e.target.parentNode)
+					var data = getdata();
+					data.splice(e.target.parentNode.className, 1);
+					saveData(data);
+					load();
+				}
+			})
+
+			// 进行与完成之间跳转
+			ol.addEventListener('click', function(e) {
+				e = e || window.event;
+				if (e.target.className == 'change') {
+					var remove = ol.removeChild(e.target.parentNode);
+					var data = getdata();
+					data[e.target.parentNode.className].done = true;
+					saveData(data);
+					load();
+				}
+
+			})
+			ul.addEventListener('click', function(e) {
+				e = e || window.event;
+				if (e.target.className == 'change') {
+					var remove = ul.removeChild(e.target.parentNode);
+					var data = getdata();
+					data[e.target.parentNode.className].done = false;
+					saveData(data);
+					load();
+				}
+
+			})
+
+			//编辑li文本
+			var n = 0;
+			ol.addEventListener('click', function(e) {
+				if (e.target.nodeName === 'P') {
+					var p = e.target;
+					var title = p.innerHTML
+					p.innerHTML = "<input type='text' id='input' value='" + title + "'/>"
+					var input = document.getElementById('input')
+					input.select() //选中input中内容
+					input.addEventListener('blur', function() {
+						if (input.value) {
+							var data = getdata();
+							// var index = 'input'.substring(1);//字符串截取 索引1及其后所有的字符
+							// console.log(index);//nput
+							data[e.target.parentNode.className].title = input.value;
+							saveData(data);
+							load();
+						}else{
+							alert('不能为空！');
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+</html>
+

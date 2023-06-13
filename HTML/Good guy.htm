@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>付款详情页</title>
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        h2 {
+            margin: 40px auto;
+            margin-top: 10%;
+            text-align: center;
+        }
+
+        ul {
+            max-width: 620px;
+            min-width: 220px;
+            margin: 0 auto;
+        }
+
+        li {
+            float: left;
+            list-style-type: none;
+            /* display: inline-block; */
+            margin-left: 10px;
+        }
+
+        li img {
+            display: inline-block;
+            max-width: 300px;
+            min-width: 100px;
+        }
+
+        .sec {
+            position: relative;
+            top: 90px;
+        }
+
+        h3 {
+            position: relative;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a href="javascript:history.go(-1)">返回上一页</a> 
+    <a href="javascript:location.reload()">重载页面，本地刷新</a> 
+    <a href="javascript:history.go(-1);location.reload()">返回上一页重载页面，本地刷新</a>  -->
+    <a href="javascript:history.go(-1)">
+        <div class="history" style=" position: absolute;
+            top:calc(20% - 26px);
+            right:0;
+            padding:8px 16px;
+            background-color: #ccc;
+            border-radius:24px 0 0 24px;">&lt; 返回</div>
+    </a> <a href="javascript:history.go(1)">
+        <div class='next' style="
+            position: absolute;
+            top:calc(20% + 26px);
+            right:0;
+            padding:8px 16px;
+            background-color: #ccc;
+            border-radius:24px 0 0 24px;
+            ">&gt; 前进</div>
+    </a>
+    <div style="
+        position: absolute;
+        top:calc(20% - 72px);
+        right:0;
+        padding:8px 16px;
+        background-color: #ccc;
+        border-radius:24px 0 0 24px;
+    ">↓↓↓部分浏览器点击无效</div>
+    <h2>好人一生平安</h2>
+    <ul>
+        <li><img src="../img/zhifubao.jpg" alt=""></li>
+        <li class="sec"><img src="../img/WeChat.png" alt=""></li>
+    </ul>
+    <h3>你的鼓励是对我莫大的支持!</h3>
+</body>
+
+</html>

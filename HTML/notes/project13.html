@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #ccc;
+        }
+
+        ul {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 40%;
+            height: 40%;
+            background-color: #eee;
+        }
+        li {
+            text-align: center;
+            list-style-type: none;
+        }
+        i {
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li id="outNum"></li>
+        <li id="outInt"></li>
+    </ul>
+    <script>
+       var outputFst = document.getElementById('outNum');
+       var outputSec = document.getElementById('outInt');
+       var inNum =  prompt('输入一个三位数字：');
+        var n1, n2, n3;
+        function number(inNum) {
+            n1 = inNum % 10;
+            n2 = (inNum - n1) / 10 % 10;
+            n3 = ((inNum - n1) / 10 - n2) / 10;
+            outputFst.innerHTML = ("各位：" + n1+'; '+ " 十位：" + n2 +'; ' + " 百位：" + n3 +'; ');
+            var outNum = n1 * 100 + n2 * 10 + n3;
+            outputSec.innerHTML = '输出整数： ' + outNum;
+            // console.log("各位：" + n1 + "十位：" + n2 + "百位：" + n3);
+        };
+        number(inNum);
+    </script>
+</body> 
+
+</html>

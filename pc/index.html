@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+移动视口
+	<meta name="viewport" content="width=device-width, user-scalable=no, 
+initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+-->
+    <title>Useless_hub</title>
+    <link rel="shortcut icon" href="../img/favicon.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/extra.css">
+    <style>
+        #sakura {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            min-width: 1903px !important;
+            z-index: -1;
+        }
+
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+        ::-webkit-scrollbar {
+            width: 9px;
+            height: 9px
+        }
+
+
+        /*定义滚动条轨道*/
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            border-radius: 2em
+        }
+
+
+        /*定义滑块 内阴影+圆角*/
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #0093ff;
+            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            border-radius: 2em
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 此页主要为DreamWeaver所作,现已正式改为vsCode -->
+    <!-- 图片均来源于web 侵删 -->
+    <!--	<div class="light_box"></div>-->
+    <!--	顶部导航栏-->
+    <div class="top_nav">
+        <ul class="w">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="temp"><a href="#toItem">快进到item</a></li>
+            <li class="userHead" id="userHead"><span id="head"></span></li>
+            <li class="login"><a href="../HTML/login.html" target="_blank">登陆</a></li>
+        </ul>
+    </div>
+    <!--	头像选项卡-->
+    <div class="headChoose" id="headChoose">
+        <ul class="userHead_choose clearfix">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div>
+        <!--	change custom-->
+        <ul class="left_function" id="mainMenu">
+            <li class="clear" id="allClear">清除当前背景</li>
+            <li class="bg_item" id="bgShow">
+                <i>背景样式</i>
+                <!-- + -->
+                <span class="lay" id="lay" style="transform: rotate(0deg);"></span>
+                <span class="stand" id="stand"></span>
+            </li>
+            <li class="background_choose_content" id="bgChooseContent">
+                <ul id="bgChooseContentSon">
+                    <li class="imgC" id="imgC">图片背景</li>
+                    <li class="meC" id="meC">视频背景</li>
+                    <li class="colC" id="colC">纯色背景</li>
+                    <li class="wGLC" id="wGLC">webGL</li>
+                </ul>
+            </li>
+            <!-- 图片背景 -->
+            <li class="display_img" id="imgBg">
+                <span style="color:#232323; font:400 16px 'Microsoft YaHei'; cursor: pointer;"
+                    id="imgViewClose">X</span>
+                <ul id="image" class="image">
+                    <li><img src="../img/top_banner.png" alt="" title="作者名:"></li>
+                    <li><img src="../img/89864956_p0.jpg" alt="" title="作者名:"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <!-- ////////// -->
+            <!-- 视频背景 -->
+            <li class="display_me" id="meBg">
+                <span style="color:#232323; font:400 16px 'Microsoft YaHei'; cursor: pointer;" id="meViewClose">X</span>
+                <ul id="media" class="media">
+                    <li>
+                        <video autoplay muted loop controls title="注意音量" id="videoChangeFst">
+                            <source src="../media/pc_bgv.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <div class="speed_changer">
+                        <i>play speed:</i>
+                        <input type="text" id="speedChangerInput">
+                        <button title="执行" id="speedChangeBtn"></button>
+                    </div>
+                </ul>
+            </li>
+            <!-- mmmmmmmmmm -->
+            <!-- 纯色 -->
+            <li class="display_col" id="colBg">
+                <span style="color:#232323; font:400 16px 'Microsoft YaHei'; cursor: pointer;"
+                    id="colViewClose">X</span>
+                <ul id="color" class="color">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div><input type="text"></div>
+            </li>
+            <!-- webGL -->
+            <li class="display_wGL" id="wGLBg">
+                <span style="color:#232323; font:400 16px 'Microsoft YaHei'; cursor: pointer;"
+                    id="wGLViewClose">X</span>
+                <ul id="webGL" class="webGL">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <!-- cccccccccc -->
+            <li class="elsF" id="elsF">
+                <i>其他功能</i>
+                <!-- + -->
+                <span class="lay" id="lay01" style="transform: rotate(0deg);"></span>
+                <span class="stand" id="stand01"></span>
+            </li>
+            <ul class="elsF_item_container" id="eItemCont">
+                <li class="else_function e1" id="bgPosition">背景定位</li>
+                <li class="else_function e2" id="bgMuc">背景音乐</li>
+                <li class="else_function e3" id="globalSettings">全局设置</li>
+            </ul>
+        </ul>
+        <div class="turn_left" id="turnLeft">
+            <!-- 1 -->
+            <div>
+                <div class="tl_up" id="o"></div>
+                <div class="tl_down" id="p"></div>
+            </div>
+            <!-- 2 -->
+            <div>
+                <div class="tl_up" id="m"></div>
+                <div class="tl_down" id="n"></div>
+            </div>
+            <!-- 3 -->
+            <div>
+                <div class="tl_up" id="k"></div>
+                <div class="tl_down" id="l"></div>
+            </div>
+            <!-- 4 -->
+            <div>
+                <div class="tl_up" id="i"></div>
+                <div class="tl_down" id="j"></div>
+            </div>
+            <!-- 5 -->
+            <div>
+                <div class="tl_up" id="g"></div>
+                <div class="tl_down" id="h"></div>
+            </div>
+            <!-- 6 -->
+            <div>
+                <div class="tl_up" id="e"></div>
+                <div class="tl_down" id="f"></div>
+            </div>
+            <!-- 7 -->
+            <div>
+                <div class="tl_up" id="c"></div>
+                <div class="tl_down" id="d"></div>
+            </div>
+            <!-- 8 -->
+            <div>
+                <div class="tl_up" id="a"></div>
+                <div class="tl_down" id="b"></div>
+            </div>
+        </div>
+        <div class="turn_right" id="turnRight">
+
+        </div>
+    </div>
+    <!--图片来源于web-->
+    <div class="wornning">
+        <h2>图片来源于Pixiv</h2>
+    </div>6
+    <!--右侧栏-->
+    <div class="right_banner" id="mee">
+        <h3 class="right_banner_title"><i class="right_banner_tarea">Program&Study笔记(急更)</i></h3>
+        <ul class="right_banner_item">
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font>编程(脚本)语言</font>
+                </a>
+
+                <a href="../HTML/notes/JavaScript/JavaScript.html" target="_blank">
+                    <span>JavaScript</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font>标记语言</font>
+
+                    <a href="../HTML/notes/HTML&CSS/HTML&CSS.html" target="_blank">
+                        <span>HTML + CSS(less,scss)</span>
+                    </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font>主流编程语言</font>
+                </a>
+
+                <a href="../HTML/notes/C/C.html" target="_blank">
+                    <span>C(C++,C#)</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font>主流编程语言</font>
+                </a>
+
+                <a href="../HTML/notes/Python/Python.html" target="_blank">
+                    <span>Python</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font>数据库</font>
+                </a>
+
+                <a href="../HTML/notes/mySQL/mySQL.html" target="_blank">
+                    <span>mySQL</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font>主流建模软件之一</font>
+                </a>
+
+                <a href="../HTML/notes/3ds_Max/3ds_Max.html" target="_blank">
+                    <span>3ds_Max</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font></font>
+                </a>
+
+                <a href="../HTML/notes/main/Chinese/Chinese.html" target="_blank">
+                    <span>语文</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font></font>
+                </a>
+
+                <a href="../HTML/notes/main/Math/Math.html" target="_blank">
+                    <span>数学</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font></font>
+                </a>
+
+                <a href="../HTML/notes/main/English/index.html" target="_blank">
+                    <span>英语</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" target="_self">
+                    <font></font>
+                </a>
+
+                <a href="http://96yzl.usa3v.vip/HTML/project" target="_blank">
+                    <span>当初建站的时候才刚入门，很多重复模块都是直接复制黏贴的,导致文件冗余大不说，后期维护也很难受</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--图片遮罩-->
+    <div class="black_box" id="me"></div>
+    <!--banner大图-->
+    <!--
+						 //
+			 \\         //
+	          \\       //
+	    ##DDDDDDDDDDDDDDDDDDDDDD##
+	    ## DDDDDDDDDDDDDDDDDDDD ##   ________   ___   ___        ___   ________   ___   ___        ___
+	    ## hh                hh ##   |\   __  \ |\  \ |\  \      |\  \ |\   __  \ |\  \ |\  \      |\  \
+	    ## hh    //    \\    hh ##   \ \  \|\ /_\ \  \\ \  \     \ \  \\ \  \|\ /_\ \  \\ \  \     \ \  \
+	    ## hh   //      \\   hh ##    \ \   __  \\ \  \\ \  \     \ \  \\ \   __  \\ \  \\ \  \     \ \  \
+	    ## hh                hh ##     \ \  \|\  \\ \  \\ \  \____ \ \  \\ \  \|\  \\ \  \\ \  \____ \ \  \
+	    ## hh      wwww      hh ##      \ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\
+	    ## hh                hh ##       \|_______| \|__| \|_______| \|__| \|_______| \|__| \|_______| \|__|
+	    ## MMMMMMMMMMMMMMMMMMMM ##
+	    ##MMMMMMMMMMMMMMMMMMMMMM##                             Release 2.6.1. Powered by jinkela-core 2.8.9.
+	         \/            \/
+
+	-->
+    <div class="background" style="width: 100%">
+        <video style="width: 100%;box-shadow: 6px 6px 24px 1px rgba(20,20,20,.3);" autoplay="autoplay" muted controls loop>
+            <source src="../media/Nyan_cat.mp4">
+        </video>
+        <canvas id="can" style="width:100%">您的浏览器不支持canvas标签</canvas>
+        <canvas id="sakura" style="width:100%"></canvas>
+    </div>
+    <!-- 原背景容器 -->
+    <span id="change_bg" class="video_img">
+        <!-- <div class="banner_img"></div> -->
+        <!--
+        <div class="banner_video">
+            <video autoplay="autoplay" loop muted controls width="100%" class="video_me" poster="../img/after_loading.png">
+                <source src="../media/pc_bgv.mp4" type="video/mp4">
+            </video></div>
+    -->
+    </span>
+    <!--	鼠标跟随-->
+    <div class="curse_bg"><img src="../img/curse/curse@256.gif" alt="" id="cubg"></div>
+    <!--内容-->
+    <div class="content clearfix" id="toItem"
+    style="margin-top: -44%;">
+        <!--正在进行的项目-->
+        <div class="r" id="hover1">
+            <div class="BeforeBgc" id="hvr1"></div>
+            <div class="w clearfix">
+                <ul class="bef clearfix title_div">
+                    <li class="item_title clearfix">
+                        <h3>进行过的项目&nbsp;</h3>
+                    </li>
+                    <li class="item_more"><a href="javascript:;">更多&gt;</a></li>
+                </ul>
+            </div>
+            <!--正在进行的项目-->
+            <div class="sw">
+                <ul class="item_content">
+
+                    <!--1-->
+                    <li>
+                        <div class="title_img">
+                            <a href="../HTML/project/bilibili/index.html" target="_blank"><img
+                                    src="../img/bili_logo_new.jpg" alt="bilibili" title="bilibili" /></a>
+                        </div>
+                        <div class="item_light_box"></div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="../HTML/project/bilibili/index.html" target="_blank"></a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--2-->
+                    <li>
+                        <div class="title_img">
+                            <a href="../HTML/project/jd/index.html" target="_blank"><img src="../img/jd_logo_new.jpg"
+                                    alt="京东" title="京东" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="../HTML/project/jd/index.html" target="_blank">京东</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--3-->
+                    <li id="pvtip">
+                        <div class="title_img">
+                            <a href="../HTML/project/pixiv/Pixiv_index.html" target="_blank"><img
+                                    src="../img/Pixiv_logo_new.jpg" alt="Pixiv(部分)" title="搁置中~" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <!-- <a href="https://www.pixiv.net/" target="_blank" class="pvtip"> -->
+                                <a href="../HTML/project/pixiv/Pixiv_index.html" target="_blank">Pixiv</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--4-->
+                    <li>
+
+                        <div class="title_img">
+                            <a href="#img"><img src="" target="_self" alt="" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="../HTML/project/Calculator/index.html">简易计算器</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--5-->
+                    <li class="list_item">
+
+                        <div class="title_img">
+                            <a href="#img"><img src="" alt="" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="javascript:void(0);" target="_self">虚位以待</a>
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+         <!--其他模块-->
+        <div class="r" id="hover1">
+            <div class="BeforeBgc" id="hvr1"></div>
+            <div class="w clearfix">
+                <ul class="bef clearfix title_div">
+                    <li class="item_title clearfix">
+                        <h3>其他模块&nbsp;</h3>
+                    </li>
+                    <li class="item_more"><a href="javascript:;">更多&gt;</a></li>
+                </ul>
+            </div>
+            <!--其他模块-->
+            <div class="sw">
+                <ul class="item_content">
+
+                    <!--1-->
+                    <li>
+                        <div class="title_img">
+                            <!-- <a href="../HTML/project/bilibili/index.html" target="_blank"><img
+                                    src="../img/bili_logo_new.jpg" alt="bilibili" title="bilibili" /></a> -->
+                            <a href="javascript:;"><img src="" target="_self" alt="" /></a>
+                        </div>
+                        <div class="item_light_box"></div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="../HTML/module/overlay/overlay.html" target="_blank">对比图模块</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--2-->
+                    <li>
+                        <div class="title_img">
+                            <!-- <a href="../HTML/project/jd/index.html" target="_blank"><img src="../img/jd_logo_new.jpg"
+                                    alt="京东" title="京东" /></a> -->
+                            <a href="javascript:;"><img src="" target="_self" alt="" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="../HTML/project/页面加载可视化/index.html">页面加载可视化</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--3-->
+                    <li id="pvtip">
+                        <div class="title_img">
+                            <!-- <a href="../HTML/project/pixiv/Pixiv_index.html" target="_blank"><img
+                                    src="../img/Pixiv_logo_new.jpg" alt="Pixiv(部分)" title="搁置中~" /></a> -->
+                            <a href="javascript:;"><img src="" target="_self" alt="" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <!-- <a href="https://www.pixiv.net/" target="_blank" class="pvtip"> -->
+                                <a href="javascript:;" >虚位以待</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--4-->
+                    <li>
+
+                        <div class="title_img">
+                            <a href="javascript:;"><img src="" target="_self" alt="" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="javascript:void(0);">虚位以待</a>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <!--5-->
+                    <li class="list_item">
+
+                        <div class="title_img">
+                            <a href="javascript:;"><img src="" alt="" /></a>
+                        </div>
+                        <div>
+                            <h4 class="item_name">
+                                <a href="javascript:void(0);" target="_self">虚位以待</a>
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--		sec-->
+        <div class="r" id="hover2">
+            <div class="BeforeBgc" id="hvr2"></div>
+            <div class="w clearfix">
+                <ul class="clearfix title_div">
+                    <li class="item_title">
+                        <h3>Media</h3>
+                    </li>
+
+                    <li class="item_more"><a href="javascript:;">更多&gt;</a></li>
+                </ul>
+            </div>
+            <div class="item_content_third clearfix">
+                <ul class="sec_item_content w" id="sec_item_content">
+                    <li class="sec_item_lift fl" id="sec_lift"></li>
+                    <li class="sec_item_right fl" id="sec_right">
+                        <video src="../media/secVideo.mp4" loop muted autoplay class="secVideo"></video>
+                    </li>
+                    <li class="sec_item_right_bottom fl clearfix">
+                        <ul class="sec-item_right_rel clearfix">
+                            <li class="SpongeBob"><a href="javascript:;"><span class="spongebob"></span></a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--		third-->
+        <div class="r" id="hover3">
+            <div class="BeforeBgc" id="hvr3"></div>
+            <div class="w clearfix" id="thdModuleTitle">
+                <ul class="bef clearfix title_div">
+                    <li class="item_title">
+                        <h3>special website</h3>
+                    </li>
+                    <li class="item_more"><a href="javascript:;">更多&gt;</a></li>
+                </ul>
+            </div>
+
+            <!--	item-->
+            <div class="clearfix" id="thdModuleItm">
+                <ul class=" clearfix third_banner w">
+                    <li class="cat">
+                        <a href="../HTML/games/surroundCat/cat.html" target="_blank"><span></span></a>
+                        <em>
+                            <a href="../HTML/games/surroundCat/cat.html" target="_blank">圈小猫</a>
+                        </em>
+                    </li>
+                    <li class="glass">
+                        <a href="https://sandspiel.club/" target="_blank"><span></span></a>
+                        <em><a href="https://sandspiel.club/" target="_blank">sandspie(外链)</a></em>
+                    </li>
+                    <li class="miku">
+                        <a href="https://aidn.jp/mikutap/" target="_blank"><span title="f11食用更佳"></span></a>
+                        <em><a href="https://aidn.jp/mikutap/" target="_blank">Mikutap(外链)</a></em>
+                    </li>
+                    <li class="fruitNinja">
+                        <a href="../HTML/games/html5-fruit-ninja/index.html" target="_blank"><span
+                                title="f11食用更佳"></span></a>
+                        <em><a href="../HTML/games/html5-fruit-ninja/index.html" target="_blank">水果忍者</a></em>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <!--item APK-->
+        <div class="w clearfix">
+            <ul class="bef clearfix title_div">
+                <li class="item_title">
+                    <h3>(apk) Android</h3>
+                </li>
+                <li class="item_more"><a href="javascript:;">更多&gt;</a></li>
+            </ul>
+            <div class="apk_item"></div>
+        </div>
+
+        <!--item EXE-->
+        <div class="w clearfix">
+            <ul class="bef clearfix title_div">
+                <li class="item_title">
+                    <h3>(exe) Windows</h3>
+                </li>
+                <li class="item_more"><a href="javascript:;">更多&gt;</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!--	防烂尾-->
+    <!-- <div class="bottom_video clearfix">
+        <video loop autoplay muted id="afterVideo">
+            <source src="../media/pc_bgv_w1080-h540.mp4">
+        </video>
+    </div> -->
+    <div class="clearfix"></div>
+    <script src="../js/extra/index.min.js"></script>
+    <script src="../js/extra/jquery.js"></script>
+    <script src="../js/extra/slideshow.min.js"></script>
+    <script src="../js/extra/after.min.js"></script>
+    <!-- sakura shader -->
+    <script id="sakura_point_vsh" class="js" type="x-shader/x_vertex">
+//樱花
+uniform mat4 uProjection;
+uniform mat4 uModelview;
+uniform vec3 uResolution;
+uniform vec3 uOffset;
+uniform vec3 uDOF;  //x:focus distance, y:focus radius, z:max radius
+uniform vec3 uFade; //x:start distance, y:half distance, z:near fade start
+
+attribute vec3 aPosition;
+attribute vec3 aEuler;
+attribute vec2 aMisc; //x:size, y:fade
+
+varying vec3 pposition;
+varying float psize;
+varying float palpha;
+varying float pdist;
+
+//varying mat3 rotMat;
+varying vec3 normX;
+varying vec3 normY;
+varying vec3 normZ;
+varying vec3 normal;
+
+varying float diffuse;
+varying float specular;
+varying float rstop;
+varying float distancefade;
+
+void main(void) {
+    // Projection is based on vertical angle
+    vec4 pos = uModelview * vec4(aPosition + uOffset, 1.0);
+    gl_Position = uProjection * pos;
+    gl_PointSize = aMisc.x * uProjection[1][1] / -pos.z * uResolution.y * 0.5;
+
+    pposition = pos.xyz;
+    psize = aMisc.x;
+    pdist = length(pos.xyz);
+    palpha = smoothstep(0.0, 1.0, (pdist - 0.1) / uFade.z);
+
+    vec3 elrsn = sin(aEuler);
+    vec3 elrcs = cos(aEuler);
+    mat3 rotx = mat3(
+        1.0, 0.0, 0.0,
+        0.0, elrcs.x, elrsn.x,
+        0.0, -elrsn.x, elrcs.x
+    );
+    mat3 roty = mat3(
+        elrcs.y, 0.0, -elrsn.y,
+        0.0, 1.0, 0.0,
+        elrsn.y, 0.0, elrcs.y
+    );
+    mat3 rotz = mat3(
+        elrcs.z, elrsn.z, 0.0, 
+        -elrsn.z, elrcs.z, 0.0,
+        0.0, 0.0, 1.0
+    );
+    mat3 rotmat = rotx * roty * rotz;
+    normal = rotmat[2];
+
+    mat3 trrotm = mat3(
+        rotmat[0][0], rotmat[1][0], rotmat[2][0],
+        rotmat[0][1], rotmat[1][1], rotmat[2][1],
+        rotmat[0][2], rotmat[1][2], rotmat[2][2]
+    );
+    normX = trrotm[0];
+    normY = trrotm[1];
+    normZ = trrotm[2];
+
+    const vec3 lit = vec3(0.6917144638660746, 0.6917144638660746, -0.20751433915982237);
+
+    float tmpdfs = dot(lit, normal);
+    if(tmpdfs < 0.0) {
+        normal = -normal;
+        tmpdfs = dot(lit, normal);
+    }
+    diffuse = 0.4 + tmpdfs;
+
+    vec3 eyev = normalize(-pos.xyz);
+    if(dot(eyev, normal) > 0.0) {
+        vec3 hv = normalize(eyev + lit);
+        specular = pow(max(dot(hv, normal), 0.0), 20.0);
+    }
+    else {
+        specular = 0.0;
+    }
+
+    rstop = clamp((abs(pdist - uDOF.x) - uDOF.y) / uDOF.z, 0.0, 1.0);
+    rstop = pow(rstop, 0.5);
+    //-0.69315 = ln(0.5)
+    distancefade = min(1.0, exp((uFade.x - pdist) * 0.69315 / uFade.y));
+}
+</script>
+    <script id="sakura_point_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
+//precision mediump float;
+precision highp float;
+#endif
+
+uniform vec3 uDOF;  //x:focus distance, y:focus radius, z:max radius
+uniform vec3 uFade; //x:start distance, y:half distance, z:near fade start
+
+const vec3 fadeCol = vec3(0.08, 0.03, 0.06);
+
+varying vec3 pposition;
+varying float psize;
+varying float palpha;
+varying float pdist;
+
+//varying mat3 rotMat;
+varying vec3 normX;
+varying vec3 normY;
+varying vec3 normZ;
+varying vec3 normal;
+
+varying float diffuse;
+varying float specular;
+varying float rstop;
+varying float distancefade;
+
+float ellipse(vec2 p, vec2 o, vec2 r) {
+    vec2 lp = (p - o) / r;
+    return length(lp) - 1.0;
+}
+
+void main(void) {
+    vec3 p = vec3(gl_PointCoord - vec2(0.5, 0.5), 0.0) * 2.0;
+    vec3 d = vec3(0.0, 0.0, -1.0);
+    float nd = normZ.z; //dot(-normZ, d);
+    if(abs(nd) < 0.0001) discard;
+
+    float np = dot(normZ, p);
+    vec3 tp = p + d * np / nd;
+    vec2 coord = vec2(dot(normX, tp), dot(normY, tp));
+
+    //angle = 15 degree
+    const float flwrsn = 0.28819045102521;
+    const float flwrcs = 0.965925826289068;
+    mat2 flwrm = mat2(flwrcs, -flwrsn, flwrsn, flwrcs);
+    vec2 flwrp = vec2(abs(coord.x), coord.y) * flwrm;
+
+    float r;
+    if(flwrp.x < 0.0) {
+        r = ellipse(flwrp, vec2(0.065, 0.024) * 0.5, vec2(0.36, 0.96) * 0.5);
+    }
+    else {
+        r = ellipse(flwrp, vec2(0.065, 0.024) * 0.5, vec2(0.58, 0.96) * 0.5);
+    }
+
+    if(r > rstop) discard;
+	//花瓣颜色
+    vec3 col = mix(vec3(1.0, 0.9, 0.75), vec3(1.0, 0.9, 0.87), r);
+    float grady = mix(0.0, 1.0, pow(coord.y * 0.5 + 0.5, 0.35));
+    col *= vec3(3.0, grady, grady);
+    col *= mix(0.9, 1.0, pow(abs(coord.x), 1.0));
+    col = col * diffuse + specular;
+
+    col = mix(fadeCol, col, distancefade);
+
+    float alpha = (rstop > 0.001)? (0.5 - r / (rstop * 2.0)) : 1.0;
+    alpha = smoothstep(0.0, 1.0, alpha) * palpha;
+
+    gl_FragColor = vec4(col * 3.0, alpha);
+}
+</script>
+    <!-- effects -->
+    <script id="fx_common_vsh" type="x-shader/x_vertex">
+uniform vec3 uResolution;
+attribute vec2 aPosition;
+
+varying vec2 texCoord;
+varying vec2 screenCoord;
+
+void main(void) {
+    gl_Position = vec4(aPosition, 0.0, 1.0);
+    texCoord = aPosition.xy * 0.5 + vec2(0.5, 0.5);
+    screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
+}
+</script>
+    <script id="bg_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
+//precision mediump float;
+precision highp float;
+#endif
+
+uniform vec2 uTimes;
+
+varying vec2 texCoord;
+varying vec2 screenCoord;
+
+void main(void) {
+    vec3 col;
+    float c;
+    vec2 tmpv = texCoord * vec2(0.8, 1.0) - vec2(0.95, 1.0);
+    c = exp(-pow(length(tmpv) * 1.2, 2.0));
+    col = mix(vec3(0.05, 0.0, 0.03), vec3(0.96,0.91, 1.0) * 1.5, c);
+    gl_FragColor = vec4(col * 0.5, 1.0);
+}
+</script>
+    <script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
+//precision mediump float;
+precision highp float;
+#endif
+uniform sampler2D uSrc;
+uniform vec2 uDelta;
+
+varying vec2 texCoord;
+varying vec2 screenCoord;
+
+void main(void) {
+    vec4 col = texture2D(uSrc, texCoord);
+    gl_FragColor = vec4(col.rgb * 2.0 - vec3(0.5), 1.0);
+}
+</script>
+    <script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
+//precision mediump float;
+precision highp float;
+#endif
+uniform sampler2D uSrc;
+uniform vec2 uDelta;
+uniform vec4 uBlurDir; //dir(x, y), stride(z, w)
+
+varying vec2 texCoord;
+varying vec2 screenCoord;
+
+void main(void) {
+    vec4 col = texture2D(uSrc, texCoord);
+    col = col + texture2D(uSrc, texCoord + uBlurDir.xy * uDelta);
+    col = col + texture2D(uSrc, texCoord - uBlurDir.xy * uDelta);
+    col = col + texture2D(uSrc, texCoord + (uBlurDir.xy + uBlurDir.zw) * uDelta);
+    col = col + texture2D(uSrc, texCoord - (uBlurDir.xy + uBlurDir.zw) * uDelta);
+    gl_FragColor = col / 7.5;
+}
+</script>
+    <!-- effect fragment shader template -->
+    <script id="fx_common_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
+//precision mediump float;
+precision highp float;
+#endif
+uniform sampler2D uSrc;
+uniform vec2 uDelta;
+
+varying vec2 texCoord;
+varying vec2 screenCoord;
+
+void main(void) {
+    gl_FragColor = texture2D(uSrc, texCoord);
+}
+</script>
+    <!-- post processing -->
+    <script id="pp_final_vsh" type="x-shader/x_vertex">
+uniform vec3 uResolution;
+attribute vec2 aPosition;
+varying vec2 texCoord;
+varying vec2 screenCoord;
+void main(void) {
+    gl_Position = vec4(aPosition, 0.0, 1.0);
+    texCoord = aPosition.xy * 0.5 + vec2(0.5, 0.5);
+    screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
+}
+</script>
+    <script id="pp_final_fsh" type="x-shader/x_fragment">
+#ifdef GL_ES
+//precision mediump float;
+precision highp float;
+#endif
+uniform sampler2D uSrc;
+uniform sampler2D uBloom;
+uniform vec2 uDelta;
+varying vec2 texCoord;
+varying vec2 screenCoord;
+void main(void) {
+    vec4 srccol = texture2D(uSrc, texCoord) * 2.0;
+    vec4 bloomcol = texture2D(uBloom, texCoord);
+    vec4 col;
+    col = srccol + bloomcol * (vec4(1.0) + srccol);
+    col *= smoothstep(1.0, 0.0, pow(length((texCoord - vec2(0.5)) * 2.0), 1.2) * 0.5);
+    col = pow(col, vec4(0.45454545454545)); //(1.0 / 2.2)
+
+    gl_FragColor = vec4(col.rgb, 1.0);
+    gl_FragColor.a = 1.0;
+}
+</script>
+    <script src="../js/interesting.js"></script>
+</body>
+
+</html>

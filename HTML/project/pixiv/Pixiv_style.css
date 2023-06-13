@@ -1,0 +1,160 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+i,
+em {
+	font-style: normal;
+}
+li {
+	list-style-type: none;
+}
+header {
+	margin: 0 auto;
+	width: 1850px;
+	height: 64px;
+	line-height: 64px;
+}
+a {
+	text-decoration: none;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.w {
+	width: 1300px;
+	margin: 0 auto;
+	text-align: center;
+}
+/*
+.header_w {
+	width: 1850px;
+	margin: 0 auto;
+*/
+/*}*/
+.menu {
+	height: 24px;
+	width: 24px;
+}
+
+
+
+header .header li {
+	float: left;
+}
+
+.main_logo {
+	margin-left: 25px;
+}
+
+.nav_menu {
+	position: relative;
+    fill:currentColor;
+	top: 7px;
+	width: 40px;
+	height: 40px;line-height: 64px;
+	color: rgba(167, 167, 167,1);
+	border-radius: 40px;
+	transition: all 0.3s;
+}
+.nav_menu svg {
+	position: relative;
+	top: -7px;
+	left: 8px;
+}
+.nav_menu:hover {
+	background-color: rgb(245, 245, 245);
+}
+
+.margin_bt_fst {
+	display: inline-block;
+	width: calc(4.17% - 0.64px);
+	height: 0.1px;
+}
+
+.uidInput input ,
+.pidInput input ,
+.itemInput input {
+	outline: none;
+	height: 40px;
+	line-height: 64px;
+	border: 0;
+	background-color: rgba(245,245,245,1.00);
+}
+
+.uidInput {
+	margin-right: 10px;
+}
+.uidInput input ,
+.pidInput input {
+	width: 205px;
+}
+
+.pidInput {
+	margin-right: 20px;
+}
+
+.itemInput input {
+/*
+	min-width: 205px;
+	max-width: 525px; 2734 1067
+*/
+/*
+	min-width: calc(27.34% + 0.072px);
+	max-width: calc(10.67% + 0.136px);
+*/
+	width: 100%;
+/*	min-width: 205px;*/
+	
+}
+
+ul select:first-child {
+	margin-left: 24px;
+	margin-right: 15px;
+	width: 150px;
+	height: 25px;
+}
+
+.pixiv_vip a span {
+	padding: 3px 5px;
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(253, 158, 22);
+    white-space: nowrap;
+}
+
+
+
+.itemInput {
+	width: 28.37%;
+	max-width: 28.37%;
+	min-width: 11.08%;
+}
+
+.upitem {
+	margin-left: 16px;
+}
+.upitem bottom  {
+	display: inline-block;
+	min-width: 64px;
+	line-height: 22px;
+	margin: 0px;
+	padding: 9px 24px;
+/*	border: medium none;*/
+	border-radius: 100vw;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+	color: rgba(0, 0, 0, 0.64);
+	background-color: rgba(0, 0, 0, 0.04);
+}

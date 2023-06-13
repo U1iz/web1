@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 4000px;
+            background: green;
+        }
+
+        #btn {
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="box"></div>
+    <div id="btn"></div>
+</body>
+
+<script>
+    window.onload = function () {
+    }
+    var box = document.getElementById("box")
+    var btn = document.getElementById("btn");
+
+    function scrollTop(e, refresh_rate) {
+        var timer = null;
+        window.onscroll = function () {
+            var scroll_top = document.documentElement.scrollTop || document.body.scrollTop;
+            var scroll_height = document.body.scrollHeight;//页高
+
+            e.onclick = function () {
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    var speed = (0 - scroll_top) / 8;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    scroll_top = scroll_top + speed;
+                    console.log(scroll_top)
+                    document.documentElement.scrollTop = scroll_top;
+                    if (scroll_top <= 0) {
+                        clearInterval(timer)
+                    }
+                }, refresh_rate)
+            }
+        }
+    };
+    scrollTop(btn, 30)
+
+
+</script>
+
+
+</html>>

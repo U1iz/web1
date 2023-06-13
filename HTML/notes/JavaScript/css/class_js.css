@@ -1,0 +1,121 @@
+* {
+  cursor: default;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background-color: #464646;
+}
+body li {
+  list-style-type: none;
+}
+.main {
+  position: relative;
+  margin: 6rem auto;
+  height: 24rem;
+  width: 36rem;
+  background-color: #a0a0a0;
+  transition: all 0.4s;
+}
+.main:hover {
+  background-color: #a3a3a3;
+  box-shadow: 1px 1px 12px #a6a6a6;
+}
+.main .title_h1 {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 1.2rem auto;
+  max-width: 10.08rem;
+  top: 0.6rem;
+  font: 800 1.6rem "Microsoft YaHei";
+  transition: all 0.3s;
+}
+.main .title_h1:hover {
+  top: 0.4rem;
+  font: 800 1.8rem "Microsoft YaHei";
+  margin: 1rem auto;
+}
+.main .title_h1::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 8.4rem / 20);
+  width: 0.84rem;
+  height: 0.2rem;
+  border-radius: 16px;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.main .title_h1:hover::before {
+  left: calc(50% - 8.4rem / 2);
+  width: 8.4rem;
+  background-color: #444;
+}
+.main .branch {
+  height: calc(100% - 4.5rem);
+}
+.main .branch .title_js,
+.main .branch .title_jQ {
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  display: block;
+  font: 600 1.2rem "Microsoft YaHei";
+  width: 44%;
+  height: 100%;
+  line-height: 8rem;
+  margin-left: 4%;
+  transition: all 0.3s;
+}
+.main .branch .title_js {
+  background-color: #dcc840;
+}
+.main .branch .title_js:hover {
+  background-color: #f6e048;
+  box-shadow: 1px 1px 12px #fff04d;
+}
+.main .branch .title_jQ {
+  background-color: #1e6edc;
+}
+.main .branch .title_jQ:hover {
+  background-color: #227bf6;
+  box-shadow: 1px 1px 12px #2484ff;
+}
+.main .line1,
+.main .line2,
+.main .line3,
+.main .line4 {
+  position: absolute;
+  background-color: rgba(120, 46, 200, 0.96);
+  transition: all 0.6s;
+}
+.main .line1,
+.main .line2 {
+  width: 0%;
+  height: 0.2rem;
+}
+.main .line1 {
+  top: 0;
+  left: 0;
+}
+.main .line2 {
+  top: calc(100% - 0.2rem);
+  left: 100%;
+}
+.main .line3,
+.main .line4 {
+  width: 0.2rem;
+  height: 0%;
+}
+.main .line3 {
+  top: 100%;
+  left: 0;
+}
+.main .line4 {
+  top: 0;
+  left: calc(100% - 0.2rem);
+}
